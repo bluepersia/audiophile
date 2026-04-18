@@ -1,0 +1,33 @@
+:root {
+  /* Font Families */
+  --font-manrope: "Manrope", sans-serif;
+
+  /* Colors */
+  --color-neutral-100: #000;
+  --color-neutral-200: #101010;
+  --color-neutral-700: #f1f1f1;
+  --color-neutral-800: #fafafa;
+  --color-neutral-900: #fff;
+  --color-danger-500: #cd2c2c;
+  --color-accent-500: #d87d4a;
+  --color-accent-600: #fbaf85;
+
+  /* Font Sizes */
+  --font-size-13: 0.86rem;
+  --font-size-14: 0.93rem;
+  --font-size-15: 1rem;
+  --font-size-18: 1.2rem;
+  --font-size-24: 1.6rem;
+  --font-size-28: 1.86rem;
+  --font-size-32: 2rem;
+  --font-size-40: 2.66rem;
+  --font-size-56: 3.73rem;
+
+  /* Font Weight */
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-700: 700;
+
+  /* Border radius */
+  --border-radius-8: 8px;
+}
