@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  column-gap: 2.26rem;
+}
+
+.link {
+  color: var(--color-neutral-900);
+  text-transform: uppercase;
+  font-size: var(--font-size-13);
+  letter-spacing: 0.15em;
+  font-weight: var(--font-weight-700);
+  transition: color 300ms;
+}
+
+.link:hover,
+.link:focus,
+.link--active {
+  color: var(--color-accent-500);
+}

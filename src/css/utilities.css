@@ -20,6 +20,7 @@
   font-family: inherit;
   background: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .reset-link {
@@ -32,4 +33,19 @@
   width: 87.4%;
   margin: 0 auto;
   max-width: 1100px;
+}
+
+@media (width >= 768px) {
+  .container {
+    width: 89.7%;
+  }
+}
+
+.opacity-hover {
+  transition: all 300ms;
+}
+
+.opacity-hover:hover,
+.opacity-hover:focus {
+  opacity: 0.5;
 }
