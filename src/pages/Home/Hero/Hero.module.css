@@ -1,8 +1,8 @@
 .hero {
   color: var(--color-neutral-900);
   text-align: center;
-  padding: clamp(7.2rem, 6.055rem + 4.885vw, 8.4rem) 0
-    clamp(8.35rem, 5.01rem + 14.249vw, 11.85rem);
+  padding: clamp(7.2rem, 6.055rem + 4.58vi, 8.4rem) 0
+    clamp(8.6rem, 5.985rem + 10.458vi, 11.34rem);
   position: relative;
   background-color: var(--color-neutral-100);
   z-index: 0;
@@ -19,7 +19,7 @@
 
 .title {
   text-transform: uppercase;
-  font-size: clamp(2.4rem, 1.131rem + 5.415vw, 3.73rem);
+  font-size: clamp(2.4rem, 1.128rem + 5.089vi, 3.733rem);
   letter-spacing: 0.035em;
   line-height: 1.11;
   margin-bottom: 1.6rem;
