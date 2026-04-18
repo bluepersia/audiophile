@@ -1,0 +1,11 @@
+{
+  "id": 0,
+  "productSlug": "xx99-mark-two-headphones",
+  "newProduct": true,
+  "description": "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
+  "image": {
+    "mobile": "/assets/home/mobile/image-header.jpg",
+    "tablet": "/assets/home/tablet/image-header.jpg",
+    "desktop": "/assets/home/desktop/image-hero.jpg"
+  }
+}
