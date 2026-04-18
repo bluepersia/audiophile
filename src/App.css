@@ -1,1 +1,5 @@
 /* stylelint-disable no-empty-source */
+
+body {
+  background-color: var(--color-neutral-200);
+}
