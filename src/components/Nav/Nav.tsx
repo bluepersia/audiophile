@@ -25,7 +25,11 @@ export default function Nav({ className }: NavProps): JSX.Element {
           key={cat.id}
           to={`category/${cat.name}`}
           className={({ isActive }) =>
-            clsx(styles.link, "reset-link", determineActiveLinkStyle(isActive))
+            clsx(
+              styles.link,
+              "reset-link",
+              styles[determineActiveLinkStyle(isActive)],
+            )
           }
         >
           {cat.name}
@@ -41,7 +45,11 @@ export default function Nav({ className }: NavProps): JSX.Element {
         to="."
         end={true}
         className={({ isActive }) =>
-          clsx(styles.link, "reset-link", determineActiveLinkStyle(isActive))
+          clsx(
+            styles.link,
+            "reset-link",
+            styles[determineActiveLinkStyle(isActive)],
+          )
         }
       >
         Home
