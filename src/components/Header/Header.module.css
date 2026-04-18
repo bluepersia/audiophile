@@ -1,6 +1,7 @@
 .header {
   background-color: var(--color-neutral-200);
   position: relative;
+  z-index: 1000;
 }
 
 .header::after {

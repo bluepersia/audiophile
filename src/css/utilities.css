@@ -49,3 +49,7 @@
 .opacity-hover:focus {
   opacity: 0.5;
 }
+
+.error {
+  color: var(--color-danger-500);
+}

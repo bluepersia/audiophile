@@ -1,5 +1,6 @@
 /* stylelint-disable no-empty-source */
 
 body {
-  background-color: var(--color-neutral-200);
+  background-color: var(--color-neutral-900);
+  height: 1000vh;
 }
