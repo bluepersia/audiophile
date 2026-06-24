@@ -46,14 +46,14 @@
   letter-spacing: 0.71em;
 }
 
-@mixin subTitle {
+@mixin sub-title {
   font-weight: bold;
   font-size: 0.86rem;
   line-height: 1.92;
   letter-spacing: 0.07em;
 }
 
-@mixin srOnly {
+@mixin sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -65,7 +65,7 @@
   border: 0;
 }
 
-@mixin resetList {
+@mixin reset-list {
   list-style: none;
   padding-left: 0;
 }
