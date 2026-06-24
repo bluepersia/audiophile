@@ -1,0 +1,36 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  font-family: var(--font-manrope);
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  display: block;
+}
+
+p {
+  line-height: 1.6;
+  font-weight: 500;
+}
