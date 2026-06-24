@@ -74,4 +74,8 @@
   width: 87.2%;
   max-width: 1110px;
   margin-inline: auto;
+
+  @media (width >= 768px) {
+    width: 89.7%;
+  }
 }
