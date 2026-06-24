@@ -1,0 +1,16 @@
+.logo-link {
+  transition:
+    opacity 300ms,
+    transform 300ms;
+}
+
+.logo-link:hover,
+.logo-link:focus {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.logo-img {
+  width: 143px;
+  height: 25px;
+}
