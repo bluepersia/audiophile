@@ -1,0 +1,25 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "customSyntax": "postcss-scss",
+  "plugins": ["stylelint-declaration-strict-value", "stylelint-scss"],
+  "rules": {
+    "scss/at-rule-no-unknown": true,
+    "at-rule-no-unknown": null,
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]*$",
+    "scale-unlimited/declaration-strict-value": [
+      ["font-family"],
+      {
+        "ignoreValues": [
+          "0",
+          "none",
+          "transparent",
+          "inherit",
+          "auto",
+          "currentColor"
+        ],
+        "disableFix": false,
+        "severity": "error"
+      }
+    ]
+  }
+}
