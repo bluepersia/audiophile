@@ -1,6 +1,7 @@
 type CategoryData = {
   id: number;
   name: string;
+  image: string;
 };
 
 type SectionData = {

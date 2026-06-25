@@ -1,0 +1,101 @@
+@use "/src/styles/mixins" as *;
+
+.categories {
+  padding-top: clamp(6.133rem, 2.571rem + 14.249vi, 9.867rem);
+  padding-bottom: clamp(8rem, 9.527rem + -6.107vi, 6.4rem);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4.53rem;
+}
+
+.category {
+  background-color: var(--color-neutral-700);
+  border-radius: 8px;
+  text-align: center;
+  height: 165px;
+}
+
+.category-img {
+  margin-top: -3.5rem;
+  width: 140px;
+  margin-inline: auto;
+}
+
+.category-name {
+  @include heading-shared;
+
+  letter-spacing: 0.07em;
+  font-size: 1rem;
+  margin-bottom: 1.13rem;
+}
+
+.category-link {
+  width: fit-content;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  font-size: 0.86rem;
+  color: var(--color-neutral-100);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.076em;
+  column-gap: 0.88rem;
+  transition: color 300ms;
+}
+
+.category-link:hover,
+.category-link:focus {
+  color: var(--color-primary-500);
+}
+
+.category-link-text {
+  opacity: 0.5;
+}
+
+.category-shop-arrow-img {
+  width: 5px;
+  height: 10px;
+}
+
+@media (width >=768px) {
+  .categories {
+    padding-top: clamp(9.867rem, 3.704rem + 12.037vi, 13.333rem);
+    padding-bottom: clamp(6.4rem, -2.133rem + 16.667vi, 11.2rem);
+  }
+
+  .list {
+    flex-direction: row;
+    column-gap: 0.66rem;
+  }
+
+  .category {
+    flex: 1;
+  }
+
+  .category-name {
+    font-size: clamp(1rem, 0.644rem + 0.694vi, 1.2rem);
+  }
+}
+
+@media (width >= 1200px) {
+  .list {
+    column-gap: 2rem;
+  }
+
+  .category {
+    height: 204px;
+  }
+
+  .category-img {
+    margin-top: -5.5rem;
+    width: 220px;
+  }
+
+  .category-name {
+    margin-top: -1rem;
+  }
+}
