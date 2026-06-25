@@ -83,3 +83,9 @@
 @mixin error {
   color: var(--color-red);
 }
+
+@mixin spinner {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+}

@@ -24,29 +24,17 @@ export default function Hero(): JSX.Element {
     enabled: !!sectionData,
   });
 
-  if (isFetchingSection || isFetchingProduct) {
-    return (
-      <div className={clsx(styles.hero)}>
-        <div className="container">
-          <img src={spinner} alt="Loading" />
-        </div>
-      </div>
-    );
-  }
+  function render(): JSX.Element {
+    if (isFetchingSection || isFetchingProduct) {
+      return <img className="spinner" src={spinner} alt="Loading" />;
+    }
 
-  if (productError) {
-    return (
-      <div className={clsx(styles.hero)}>
-        <div className="container">
-          <p className="error">{getErrorMessage(productError)}</p>
-        </div>
-      </div>
-    );
-  }
+    if (productError) {
+      return <p className="error">{getErrorMessage(productError)}</p>;
+    }
 
-  return (
-    <article className={styles.hero}>
-      <div className="container">
+    return (
+      <>
         <div className={styles.content}>
           <p className={clsx(styles.new, "overline")}>
             {productData.new ? "New Product" : ""}
@@ -71,7 +59,13 @@ export default function Hero(): JSX.Element {
             className={styles.img}
           />
         </picture>
-      </div>
+      </>
+    );
+  }
+
+  return (
+    <article className={styles.hero}>
+      <div className="container">{render()}</div>
     </article>
   );
 }
