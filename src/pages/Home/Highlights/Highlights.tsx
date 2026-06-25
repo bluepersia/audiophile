@@ -4,6 +4,7 @@ import { getHighlights } from "../../../api/home-highlights.api";
 import spinner from "/src/assets/spinner.svg";
 import { getErrorMessage } from "../../../utils/handleError";
 import SectionRenderer from "./SectionRenderer";
+import styles from "./Highlights.module.scss";
 
 export default function Highlights(): JSX.Element {
   const {
@@ -22,11 +23,11 @@ export default function Highlights(): JSX.Element {
     }
 
     return (
-      <>
+      <div className={styles.highlights}>
         {sections.map((section) => (
           <SectionRenderer key={section.id} section={section} />
         ))}
-      </>
+      </div>
     );
   }
 
