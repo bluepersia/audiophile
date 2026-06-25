@@ -1,0 +1,19 @@
+.btn {
+  background-color: var(--color-orange);
+  padding: 1rem 2rem;
+  font-weight: bold;
+  color: var(--color-white);
+  font-size: 0.86rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.076em;
+  cursor: pointer;
+  transition: background-color 300ms;
+  display: block;
+  width: fit-content;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--color-light-orange);
+}

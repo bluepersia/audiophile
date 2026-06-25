@@ -43,3 +43,7 @@
 .container {
   @include container;
 }
+
+.error {
+  @include error;
+}

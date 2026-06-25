@@ -79,3 +79,7 @@
     width: 89.7%;
   }
 }
+
+@mixin error {
+  color: var(--color-red);
+}
