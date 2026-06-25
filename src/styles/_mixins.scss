@@ -81,7 +81,7 @@
 }
 
 @mixin error {
-  color: var(--color-red);
+  color: var(--color-danger-500);
 }
 
 @mixin spinner {
