@@ -1,14 +1,17 @@
 [
   {
     "id": 0,
-    "name": "headphones"
+    "name": "headphones",
+    "image": "/assets/shared/image-category-thumbnail-headphones.png"
   },
   {
     "id": 1,
-    "name": "speakers"
+    "name": "speakers",
+    "image": "/assets/shared/image-category-thumbnail-speakers.png"
   },
   {
     "id": 2,
-    "name": "earphones"
+    "name": "earphones",
+    "image": "/assets/shared/image-category-thumbnail-earphones.png"
   }
 ]
