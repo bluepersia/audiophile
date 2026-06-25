@@ -4,8 +4,7 @@ import styles from "./SectionOne.module.scss";
 import { useQuery } from "@tanstack/react-query";
 import { getProduct } from "../../../../api/products.api";
 import Btn from "../../../../components/Btn/Btn";
-import spinner from "/src/assets/spinner.svg";
-import { getErrorMessage } from "../../../../utils/handleError";
+import handleQueryRender from "../../../../utils/handleQueryRender";
 
 export default function SectionOne({
   section,
@@ -19,40 +18,37 @@ export default function SectionOne({
     queryFn: () => getProduct(section.productSlug),
   });
 
-  function render(): JSX.Element {
-    if (isFetching) {
-      return <img className="spinner" src={spinner} alt="Loading" />;
-    }
-
-    if (error) {
-      return <p className="error">{getErrorMessage(error)}</p>;
-    }
-
-    return (
-      <>
-        <picture className={styles.picture}>
-          <source srcSet={section.image.desktop} media="(min-width: 1200px)" />
-          <source srcSet={section.image.tablet} media="(min-width: 768px)" />
-          <img
-            src={section.image.mobile}
-            alt={section.alt}
-            className={styles.img}
-          />
-        </picture>
-        <div className={styles.content}>
-          <h2 className={styles.name}>{product.name}</h2>
-          <p className={styles.desc}>{section.description}</p>
-          <Btn
-            color="dark"
-            className={styles.btn}
-            to={`products/${product.slug}`}
-          >
-            See Product
-          </Btn>
-        </div>
-      </>
-    );
-  }
-
-  return <article className={styles["section-one"]}>{render()}</article>;
+  return (
+    <article className={styles["section-one"]}>
+      {handleQueryRender(
+        isFetching,
+        error,
+        <>
+          <picture className={styles.picture}>
+            <source
+              srcSet={section.image.desktop}
+              media="(min-width: 1200px)"
+            />
+            <source srcSet={section.image.tablet} media="(min-width: 768px)" />
+            <img
+              src={section.image.mobile}
+              alt={section.alt}
+              className={styles.img}
+            />
+          </picture>
+          <div className={styles.content}>
+            <h2 className={styles.name}>{product.name}</h2>
+            <p className={styles.desc}>{section.description}</p>
+            <Btn
+              color="dark"
+              className={styles.btn}
+              to={`products/${product.slug}`}
+            >
+              See Product
+            </Btn>
+          </div>
+        </>,
+      )}
+    </article>
+  );
 }
