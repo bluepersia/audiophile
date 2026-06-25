@@ -9,7 +9,11 @@ import { getErrorMessage } from "../../../utils/handleError";
 import clsx from "clsx";
 
 export default function Hero(): JSX.Element {
-  const { data: hero, isFetching: isFetchingSection } = useQuery({
+  const {
+    data: hero,
+    isFetching: isFetchingSection,
+    error: heroError,
+  } = useQuery({
     queryKey: ["home-hero"],
     queryFn: getHero,
   });
@@ -29,8 +33,10 @@ export default function Hero(): JSX.Element {
       return <img className="spinner" src={spinner} alt="Loading" />;
     }
 
-    if (productError) {
-      return <p className="error">{getErrorMessage(productError)}</p>;
+    if (heroError || productError) {
+      return (
+        <p className="error">{getErrorMessage(heroError || productError)}</p>
+      );
     }
 
     return (
