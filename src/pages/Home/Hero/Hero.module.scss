@@ -1,10 +1,10 @@
 @use "/src/styles/mixins" as *;
 
 .hero {
-  background-color: var(--color-near-black);
+  background-color: var(--color-neutral-100);
   padding-top: clamp(7.333rem, 6.316rem + 4.071vi, 8.4rem);
   padding-bottom: clamp(7.333rem, 3.707rem + 14.504vi, 11.133rem);
-  color: var(--color-white);
+  color: var(--color-neutral-900);
   text-align: center;
   position: relative;
   z-index: 0;

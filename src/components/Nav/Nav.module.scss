@@ -12,7 +12,7 @@
   font-weight: bold;
   font-size: 0.86rem;
   text-decoration: none;
-  color: var(--color-white);
+  color: var(--color-neutral-900);
   letter-spacing: 0.15em;
   transition: color 300ms;
 }
@@ -20,7 +20,7 @@
 .link:hover,
 .link:focus,
 .link--active {
-  color: var(--color-orange);
+  color: var(--color-primary-500);
 }
 
 @media (width >= 1200px) {
