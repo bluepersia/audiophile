@@ -1,0 +1,88 @@
+@use "/src/styles/mixins" as *;
+
+.section-one {
+  background-color: var(--color-primary-500);
+  border-radius: 8px;
+  text-align: center;
+  padding: 3.66rem 1.6rem;
+  background-image: url("/src/assets/home/desktop/pattern-circles.svg");
+  background-repeat: no-repeat;
+  background-size: 160% auto;
+  background-position: top -8.2rem center;
+  color: var(--color-neutral-900);
+  overflow-y: hidden;
+}
+
+.img {
+  width: 52.5%;
+  margin-inline: auto;
+  margin-bottom: 2.13rem;
+}
+
+.content {
+  margin-inline: auto;
+  max-width: 349px;
+}
+
+.name {
+  @include heading-shared;
+
+  letter-spacing: 0.035em;
+  font-size: clamp(2.4rem, 1.128rem + 5.089vi, 3.733rem);
+  margin-bottom: 1.6rem;
+}
+
+.desc {
+  opacity: 0.75;
+  margin-bottom: 1.6rem;
+}
+
+.btn {
+  margin-inline: auto;
+}
+
+@media (width >= 768px) {
+  .section-one {
+    background-size: 140% auto;
+    background-position: top -21rem center;
+    padding-top: clamp(3.467rem, -6.133rem + 18.75vi, 8.867rem);
+    padding-bottom: clamp(4.267rem, -2.844rem + 13.889vi, 8.267rem);
+  }
+
+  .img {
+    width: 28.5%;
+    margin-bottom: 4.2rem;
+  }
+
+  .name {
+    @include h1;
+  }
+
+  .desc {
+    margin-bottom: 2.66rem;
+  }
+}
+
+@media (width >= 1200px) {
+  .section-one {
+    display: flex;
+    align-items: center;
+    column-gap: 5.2rem;
+    padding-inline: 7.8rem 6.3rem;
+    background-position: calc(0% - 8rem) calc(50% + 10em);
+    background-size: 85% auto;
+  }
+
+  .img {
+    width: 80%;
+    margin-bottom: -9rem;
+  }
+
+  .content {
+    text-align: left;
+  }
+
+  .btn {
+    margin-left: 0;
+  }
+}
