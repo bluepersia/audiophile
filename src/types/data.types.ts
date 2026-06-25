@@ -6,6 +6,7 @@ type CategoryData = {
 
 type SectionData = {
   id: number;
+  sectionType?: number;
   productSlug: string;
   image: {
     mobile: string;
