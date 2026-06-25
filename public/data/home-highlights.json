@@ -10,5 +10,16 @@
       "desktop": "/assets/home/desktop/image-speaker-zx9.png"
     },
     "alt": "Black bookshelf speaker with a white horn tweeter above a black woofer."
+  },
+  {
+    "ïd": 2,
+    "sectionType": 2,
+    "productSlug": "zx7-speaker",
+    "image": {
+      "mobile": "/assets/home/mobile/image-speaker-zx7.jpg",
+      "tablet": "/assets/home/tablet/image-speaker-zx7.jpg",
+      "desktop": "/assets/home/desktop/image-speaker-zx7.jpg"
+    },
+    "alt": "A black studio monitor speaker on a small stand against a white background."
   }
 ]
