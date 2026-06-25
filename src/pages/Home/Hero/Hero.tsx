@@ -9,19 +9,19 @@ import { getErrorMessage } from "../../../utils/handleError";
 import clsx from "clsx";
 
 export default function Hero(): JSX.Element {
-  const { data: sectionData, isFetching: isFetchingSection } = useQuery({
+  const { data: hero, isFetching: isFetchingSection } = useQuery({
     queryKey: ["home-hero"],
     queryFn: getHero,
   });
 
   const {
-    data: productData,
+    data: product,
     isFetching: isFetchingProduct,
     error: productError,
   } = useQuery({
-    queryKey: ["products", sectionData?.productSlug],
-    queryFn: () => getProduct(sectionData.productSlug),
-    enabled: !!sectionData,
+    queryKey: ["products", hero?.productSlug],
+    queryFn: () => getProduct(hero.productSlug),
+    enabled: !!hero,
   });
 
   function render(): JSX.Element {
@@ -37,27 +37,20 @@ export default function Hero(): JSX.Element {
       <>
         <div className={styles.content}>
           <p className={clsx(styles.new, "overline")}>
-            {productData.new ? "New Product" : ""}
+            {product.new ? "New Product" : ""}
           </p>
-          <h1 className={styles.name}>{productData.name}</h1>
-          <p className={styles.desc}>{sectionData.description}</p>
-          <Btn className={styles.btn} to={`products/${productData.slug}`}>
+          <h1 className={styles.name}>{product.name}</h1>
+          <p className={styles.desc}>{hero.description}</p>
+          <Btn className={styles.btn} to={`products/${product.slug}`}>
             See Product
           </Btn>
         </div>
 
         <picture className={styles.picture}>
-          <source
-            media="(min-width: 1200px)"
-            srcSet={sectionData.image.desktop}
-          />
-          <source media="(min-width:768px)" srcSet={sectionData.image.tablet} />
+          <source media="(min-width: 1200px)" srcSet={hero.image.desktop} />
+          <source media="(min-width:768px)" srcSet={hero.image.tablet} />
 
-          <img
-            src={sectionData.image.mobile}
-            alt={sectionData.alt}
-            className={styles.img}
-          />
+          <img src={hero.image.mobile} alt={hero.alt} className={styles.img} />
         </picture>
       </>
     );
