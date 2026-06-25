@@ -1,6 +1,8 @@
 .header {
   background-color: var(--color-near-black);
   border-bottom: 1px solid rgb(151 151 151 / 10.4%);
+  position: relative;
+  z-index: 1;
 }
 
 .header-inner {
