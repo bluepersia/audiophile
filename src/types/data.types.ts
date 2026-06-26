@@ -15,6 +15,7 @@ type SectionData = {
   };
   description?: string;
   alt: string;
+  alias?: string;
 };
 
 type ProductData = {

@@ -3,3 +3,15 @@
   flex-direction: column;
   row-gap: 1.6rem;
 }
+
+@media (width >= 768px) {
+  .highlights {
+    row-gap: 2.13rem;
+  }
+}
+
+@media (width >= 1200px) {
+  .highlights {
+    row-gap: 3.2rem;
+  }
+}

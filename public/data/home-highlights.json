@@ -21,5 +21,17 @@
       "desktop": "/assets/home/desktop/image-speaker-zx7.jpg"
     },
     "alt": "A black studio monitor speaker on a small stand against a white background."
+  },
+  {
+    "ïd": 3,
+    "sectionType": 3,
+    "productSlug": "yx1-earphones",
+    "image": {
+      "mobile": "/assets/home/mobile/image-earphones-yx1.jpg",
+      "tablet": "/assets/home/tablet/image-earphones-yx1.jpg",
+      "desktop": "/assets/home/desktop/image-earphones-yx1.jpg"
+    },
+    "alt": "Two black true wireless earbuds resting in an open circular charging case on a dark surface.",
+    "alias": "YX1 Earphones"
   }
 ]
