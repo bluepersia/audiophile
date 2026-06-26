@@ -7,6 +7,8 @@ import styles from "./Categories.module.scss";
 import iconArrowRight from "/src/assets/shared/desktop/icon-arrow-right.svg";
 import { Link } from "react-router";
 import clsx from "clsx";
+import Spinner from "../Spinner/Spinner";
+import Error from "../Error/Error";
 
 export default function Categories(): JSX.Element {
   const {
@@ -17,11 +19,11 @@ export default function Categories(): JSX.Element {
 
   function render(): JSX.Element {
     if (isFetching) {
-      return <img className="spinner" src={spinner} alt="Loading" />;
+      return <Spinner />;
     }
 
     if (error) {
-      return <p className="error">{getErrorMessage(error)}</p>;
+      return <Error error={error} />;
     }
 
     return (

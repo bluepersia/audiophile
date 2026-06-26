@@ -7,6 +7,8 @@ import styles from "./Hero.module.scss";
 import spinner from "/src/assets/spinner.svg";
 import { getErrorMessage } from "../../../utils/handleError";
 import clsx from "clsx";
+import Spinner from "../../../components/Spinner/Spinner";
+import Error from "../../../components/Error/Error";
 
 export default function Hero(): JSX.Element {
   const {
@@ -30,13 +32,11 @@ export default function Hero(): JSX.Element {
 
   function render(): JSX.Element {
     if (isFetchingSection || isFetchingProduct) {
-      return <img className="spinner" src={spinner} alt="Loading" />;
+      return <Spinner />;
     }
 
     if (heroError || productError) {
-      return (
-        <p className="error">{getErrorMessage(heroError || productError)}</p>
-      );
+      return <Error error={heroError || productError} />;
     }
 
     return (
