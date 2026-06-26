@@ -1,0 +1,67 @@
+@use "/src/styles/mixins" as *;
+
+.about-us {
+  padding: 8rem 0;
+  text-align: center;
+}
+
+.about-us-inner {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.66rem;
+}
+
+.img {
+  border-radius: 8px;
+}
+
+.title {
+  @include heading-shared;
+
+  font-size: clamp(1.867rem, 1.103rem + 3.053vi, 2.667rem);
+  margin-bottom: 2.13rem;
+}
+
+.title span {
+  color: var(--color-primary-500);
+}
+
+.desc {
+  opacity: 0.5;
+}
+
+@media (width >= 768px) {
+  .about-us {
+    padding-block: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
+  }
+
+  .about-us-inner {
+    row-gap: 4.2rem;
+  }
+
+  .content {
+    padding-inline: 3.86rem;
+  }
+
+  .title {
+    @include h2;
+  }
+}
+
+@media (width >= 1200px) {
+  .about-us-inner {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .content {
+    padding-inline: 0;
+    text-align: left;
+    flex-basis: 40%;
+  }
+
+  .picture {
+    flex-basis: 48.6%;
+  }
+}
