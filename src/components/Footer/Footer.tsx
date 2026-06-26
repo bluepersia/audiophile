@@ -11,7 +11,11 @@ export default function Footer(): JSX.Element {
       <div className={clsx(styles["footer-inner"], "container")}>
         <div className={styles["primary-line"]}></div>
         <Logo className={styles.logo} />
-        <Nav variant="footer" className={styles.nav} />
+        <Nav
+          variant="footer"
+          className={styles.nav}
+          listClassName={styles["nav-list"]}
+        />
         <p className={styles.desc}>
           Audiophile is an all in one stop to fulfill your audio needs.
           We&apos;re a small team of music lovers and sound specialists who are

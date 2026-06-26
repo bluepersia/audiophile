@@ -9,10 +9,12 @@ import clsx from "clsx";
 type NavProps = {
   variant?: "header" | "footer";
   className?: string;
+  listClassName?: string;
 };
 export default function Nav({
   variant = "header",
   className = "",
+  listClassName = "",
 }: NavProps): JSX.Element {
   const { data: categories } = useQuery({
     queryKey: ["categories"],
@@ -21,7 +23,7 @@ export default function Nav({
 
   return (
     <nav className={clsx(styles[`nav--${variant}`], className)}>
-      <ul className={clsx(styles.list, "reset-list")}>
+      <ul className={clsx(styles.list, "reset-list", listClassName)}>
         <li>
           <NavLink
             to="/"
