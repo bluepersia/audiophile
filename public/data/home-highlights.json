@@ -12,7 +12,7 @@
     "alt": "Black bookshelf speaker with a white horn tweeter above a black woofer."
   },
   {
-    "ïd": 2,
+    "id": 2,
     "sectionType": 2,
     "productSlug": "zx7-speaker",
     "image": {
@@ -23,7 +23,7 @@
     "alt": "A black studio monitor speaker on a small stand against a white background."
   },
   {
-    "ïd": 3,
+    "id": 3,
     "sectionType": 3,
     "productSlug": "yx1-earphones",
     "image": {
