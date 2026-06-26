@@ -1,0 +1,50 @@
+@use "/src/styles/mixins" as *;
+
+.section-three {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+}
+
+.img {
+  border-radius: 8px;
+}
+
+.content {
+  background-color: var(--color-neutral-700);
+  border-radius: 8px;
+  padding: clamp(2.733rem, -1.083rem + 15.267vi, 6.733rem) 1.6rem;
+}
+
+.name {
+  @include h4;
+
+  margin-bottom: 2.13rem;
+}
+
+@media (width >= 768px) {
+  .section-three {
+    flex-direction: row;
+    column-gap: 0.73rem;
+  }
+
+  .picture,
+  .content {
+    flex-basis: 50%;
+    width: 100%;
+  }
+
+  .content {
+    padding-left: 3.46rem;
+  }
+}
+
+@media (width >= 1200px) {
+  .section-three {
+    column-gap: 2rem;
+  }
+
+  .content {
+    padding-left: 6.33rem;
+  }
+}
