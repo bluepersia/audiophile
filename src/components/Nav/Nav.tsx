@@ -8,16 +8,20 @@ import clsx from "clsx";
 
 type NavProps = {
   variant?: "header" | "footer";
+  className?: string;
 };
-export default function Nav({ variant = "header" }: NavProps): JSX.Element {
+export default function Nav({
+  variant = "header",
+  className = "",
+}: NavProps): JSX.Element {
   const { data: categories } = useQuery({
     queryKey: ["categories"],
     queryFn: getCategories,
   });
 
   return (
-    <nav className={styles[`nav--${variant}`]}>
-      <ul className={styles.list}>
+    <nav className={clsx(styles[`nav--${variant}`], className)}>
+      <ul className={clsx(styles.list, "reset-list")}>
         <li>
           <NavLink
             to="/"

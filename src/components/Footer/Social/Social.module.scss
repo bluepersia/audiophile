@@ -1,0 +1,14 @@
+.social {
+  display: flex;
+  justify-content: center;
+  column-gap: 1.06rem;
+}
+
+.social-link svg path {
+  transition: fill 300ms;
+}
+
+.social-link:hover svg path,
+.social-link:focus svg path {
+  fill: var(--color-primary-500);
+}
