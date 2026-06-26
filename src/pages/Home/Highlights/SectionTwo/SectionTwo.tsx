@@ -6,6 +6,8 @@ import { getProduct } from "../../../../api/products.api";
 import Btn from "../../../../components/Btn/Btn";
 import spinner from "/src/assets/spinner.svg";
 import { getErrorMessage } from "../../../../utils/handleError";
+import Spinner from "../../../../components/Spinner/Spinner";
+import Error from "../../../../components/Error/Error";
 
 export default function SectionTwo({
   section,
@@ -21,11 +23,11 @@ export default function SectionTwo({
 
   function render(): JSX.Element {
     if (isFetching) {
-      return <img className="spinner" src={spinner} alt="Loading" />;
+      return <Spinner />;
     }
 
     if (error) {
-      return <p className="error">{getErrorMessage(error)}</p>;
+      return <Error error={error} />;
     }
 
     return (
