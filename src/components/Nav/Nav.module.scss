@@ -7,6 +7,11 @@
   column-gap: 2.26rem;
 }
 
+.nav--footer .list {
+  flex-direction: column;
+  row-gap: 1.06rem;
+}
+
 .link {
   text-transform: uppercase;
   font-weight: bold;
@@ -23,8 +28,18 @@
   color: var(--color-primary-500);
 }
 
+@media (width >= 768px) {
+  .nav--footer .list {
+    flex-direction: row;
+  }
+}
+
 @media (width >= 1200px) {
   .nav--header {
     display: block;
+  }
+
+  .nav--footer .list {
+    justify-content: end;
   }
 }
