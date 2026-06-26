@@ -1,8 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import type { JSX } from "react/jsx-runtime";
 import { getCategories } from "../../api/categories.api";
-import spinner from "/src/assets/spinner.svg";
-import { getErrorMessage } from "../../utils/handleError";
 import styles from "./Categories.module.scss";
 import iconArrowRight from "/src/assets/shared/desktop/icon-arrow-right.svg";
 import { Link } from "react-router";

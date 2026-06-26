@@ -4,8 +4,6 @@ import { getHero } from "../../../api/home-hero.api";
 import { getProduct } from "../../../api/products.api";
 import Btn from "../../../components/Btn/Btn";
 import styles from "./Hero.module.scss";
-import spinner from "/src/assets/spinner.svg";
-import { getErrorMessage } from "../../../utils/handleError";
 import clsx from "clsx";
 import Spinner from "../../../components/Spinner/Spinner";
 import Error from "../../../components/Error/Error";

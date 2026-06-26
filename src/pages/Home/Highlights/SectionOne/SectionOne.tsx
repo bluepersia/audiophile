@@ -4,8 +4,6 @@ import styles from "./SectionOne.module.scss";
 import { useQuery } from "@tanstack/react-query";
 import { getProduct } from "../../../../api/products.api";
 import Btn from "../../../../components/Btn/Btn";
-import spinner from "/src/assets/spinner.svg";
-import { getErrorMessage } from "../../../../utils/handleError";
 import Spinner from "../../../../components/Spinner/Spinner";
 import Error from "../../../../components/Error/Error";
 
