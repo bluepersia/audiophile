@@ -7,25 +7,28 @@ import useProductQuery from "../../../../hooks/useProductQuery";
 export default function SectionTwo({
   section,
 }: SectionRendererProps): JSX.Element {
-  const { sectionJSX } = useProductQuery(section.productSlug, (product) => (
-    <>
-      <div className={styles.content}>
-        <h2 className={styles.name}>{section.alias || product.name}</h2>
-        <Btn color="transparent" to={`products/${product.slug}`}>
-          See Product
-        </Btn>
-      </div>
-      <picture className={styles.picture}>
-        <source srcSet={section.image.desktop} media="(min-width:1200px)" />
-        <source srcSet={section.image.tablet} media="(min-width:768px)" />
-        <img
-          src={section.image.mobile}
-          alt={section.alt}
-          className={styles.img}
-        />
-      </picture>
-    </>
-  ));
+  const { jsx: sectionJSX } = useProductQuery(
+    section.productSlug,
+    (product) => (
+      <>
+        <div className={styles.content}>
+          <h2 className={styles.name}>{section.alias || product.name}</h2>
+          <Btn color="transparent" to={`products/${product.slug}`}>
+            See Product
+          </Btn>
+        </div>
+        <picture className={styles.picture}>
+          <source srcSet={section.image.desktop} media="(min-width:1200px)" />
+          <source srcSet={section.image.tablet} media="(min-width:768px)" />
+          <img
+            src={section.image.mobile}
+            alt={section.alt}
+            className={styles.img}
+          />
+        </picture>
+      </>
+    ),
+  );
 
   return <article className={styles["section-two"]}>{sectionJSX}</article>;
 }
