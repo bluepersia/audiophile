@@ -9,7 +9,7 @@ export default function useProductQuery(
   productSlug: string,
   productRender: (product: ProductData) => JSX.Element,
 ): {
-  sectionJSX: JSX.Element;
+  jsx: JSX.Element;
 } {
   const {
     data: product,
@@ -33,6 +33,6 @@ export default function useProductQuery(
   }
 
   return {
-    sectionJSX: render(),
+    jsx: render(),
   };
 }
