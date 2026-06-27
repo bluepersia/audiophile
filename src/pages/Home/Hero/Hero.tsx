@@ -11,7 +11,7 @@ import Error from "../../../components/Error/Error";
 export default function Hero(): JSX.Element {
   const {
     data: hero,
-    isFetching: isFetchingSection,
+    isPending: isPendingSection,
     error: heroError,
   } = useQuery({
     queryKey: ["home-hero"],
@@ -20,7 +20,7 @@ export default function Hero(): JSX.Element {
 
   const {
     data: product,
-    isFetching: isFetchingProduct,
+    isPending: isPendingProduct,
     error: productError,
   } = useQuery({
     queryKey: ["products", hero?.productSlug],
@@ -29,7 +29,7 @@ export default function Hero(): JSX.Element {
   });
 
   function render(): JSX.Element {
-    if (isFetchingSection || isFetchingProduct) {
+    if (isPendingSection || isPendingProduct) {
       return <Spinner />;
     }
 

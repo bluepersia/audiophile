@@ -9,12 +9,12 @@ import styles from "./Highlights.module.scss";
 export default function Highlights(): JSX.Element {
   const {
     data: sections,
-    isFetching,
+    isPending,
     error,
   } = useQuery({ queryKey: ["highlights"], queryFn: getHighlights });
 
   function render(): JSX.Element {
-    if (isFetching) {
+    if (isPending) {
       return <img className="spinner" src={spinner} alt="Loading" />;
     }
 

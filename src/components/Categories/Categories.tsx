@@ -11,12 +11,12 @@ import Error from "../Error/Error";
 export default function Categories(): JSX.Element {
   const {
     data: categories,
-    isFetching,
+    isPending,
     error,
   } = useQuery({ queryKey: ["categories"], queryFn: getCategories });
 
   function render(): JSX.Element {
-    if (isFetching) {
+    if (isPending) {
       return <Spinner />;
     }
 

@@ -13,7 +13,7 @@ export default function useProductQuery(
 } {
   const {
     data: product,
-    isFetching,
+    isPending,
     error,
   } = useQuery({
     queryKey: ["products", productSlug],
@@ -21,7 +21,7 @@ export default function useProductQuery(
   });
 
   function render(): JSX.Element {
-    if (isFetching) {
+    if (isPending) {
       return <Spinner />;
     }
 
