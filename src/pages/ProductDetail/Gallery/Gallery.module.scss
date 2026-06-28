@@ -1,0 +1,54 @@
+.gallery {
+  margin-bottom: 8rem;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.33rem;
+}
+
+.img-one,
+.img-two,
+.img-three {
+  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (width >= 768px) {
+  .gallery {
+    margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
+  }
+
+  .images {
+    display: grid;
+    grid-template-columns: 40fr 57fr;
+    grid-template-rows: auto auto;
+    column-gap: 1.2rem;
+  }
+
+  .picture-one,
+  .picture-two {
+    grid-column: 1 / 2;
+  }
+
+  .picture-one {
+    grid-row: 1 / 2;
+  }
+
+  .picture-two {
+    grid-row: 2 / -1;
+  }
+
+  .picture-three {
+    grid-row: 1 / -1;
+    grid-column: 2 / -1;
+  }
+}
+
+@media (width >= 1200px) {
+  .images {
+    gap: 2.13rem 2rem;
+  }
+}

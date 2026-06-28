@@ -4,6 +4,7 @@ import useProductQuery from "../../hooks/useProductQuery";
 import Details from "./Details/Details";
 import styles from "./ProductDetail.module.scss";
 import Summary from "./Summary/Summary";
+import Gallery from "./Gallery/Gallery";
 
 export default function ProductDetail(): JSX.Element {
   const location = useLocation();
@@ -14,6 +15,7 @@ export default function ProductDetail(): JSX.Element {
       <article>
         <Details product={product} />
         <Summary product={product} />
+        <Gallery product={product} />
       </article>
     </>
   ));
