@@ -3,6 +3,7 @@ import type { JSX } from "react/jsx-runtime";
 import useProductQuery from "../../hooks/useProductQuery";
 import Details from "./Details/Details";
 import styles from "./ProductDetail.module.scss";
+import Summary from "./Summary/Summary";
 
 export default function ProductDetail(): JSX.Element {
   const location = useLocation();
@@ -12,6 +13,7 @@ export default function ProductDetail(): JSX.Element {
     <>
       <article>
         <Details product={product} />
+        <Summary product={product} />
       </article>
     </>
   ));

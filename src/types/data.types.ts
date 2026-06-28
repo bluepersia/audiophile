@@ -31,6 +31,13 @@ type ProductData = {
   alt: string;
   description: string;
   price: number;
+  features: string;
+  includes: [
+    {
+      item: string;
+      quantity: number;
+    },
+  ];
 };
 
 export type { CategoryData, SectionData, ProductData };
