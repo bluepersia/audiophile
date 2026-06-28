@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import type { JSX } from "react/jsx-runtime";
 import useProductQuery from "../../hooks/useProductQuery";
 import Details from "./Details/Details";
@@ -10,8 +10,8 @@ import Categories from "../../components/Categories/Categories";
 import AboutUs from "../../components/AboutUs/AboutUs";
 
 export default function ProductDetail(): JSX.Element {
-  const location = useLocation();
   const { slug } = useParams();
+  const navigate = useNavigate();
 
   const { jsx: productJSX } = useProductQuery(slug, (product) => (
     <>
@@ -28,9 +28,9 @@ export default function ProductDetail(): JSX.Element {
   return (
     <div className="container">
       <nav className={styles.nav}>
-        <Link to={location.state?.from || "/"} className={styles["back-link"]}>
+        <button onClick={() => navigate(-1)} className={styles["back-link"]}>
           Go Back
-        </Link>
+        </button>
       </nav>
       {productJSX}
     </div>
