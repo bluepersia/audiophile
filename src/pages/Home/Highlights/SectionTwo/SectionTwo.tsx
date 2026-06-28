@@ -3,17 +3,24 @@ import type { SectionRendererProps } from "../SectionRenderer.types";
 import styles from "./SectionTwo.module.scss";
 import Btn from "../../../../components/Btn/Btn";
 import useProductQuery from "../../../../hooks/useProductQuery";
+import { useLocation } from "react-router";
 
 export default function SectionTwo({
   section,
 }: SectionRendererProps): JSX.Element {
+  const location = useLocation();
+
   const { jsx: sectionJSX } = useProductQuery(
     section.productSlug,
     (product) => (
       <>
         <div className={styles.content}>
           <h2 className={styles.name}>{section.alias || product.name}</h2>
-          <Btn color="transparent" to={`products/${product.slug}`}>
+          <Btn
+            color="transparent"
+            to={`products/${product.slug}`}
+            state={{ from: location.pathname }}
+          >
             See Product
           </Btn>
         </div>

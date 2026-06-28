@@ -1,0 +1,82 @@
+@use "/src/styles/mixins" as *;
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5.86rem;
+  margin-bottom: clamp(5.867rem, 3.831rem + 8.142vi, 8rem);
+}
+
+.features-title,
+.box-title {
+  @include heading-shared;
+
+  font-size: clamp(1.6rem, 1.091rem + 2.036vi, 2.133rem);
+}
+
+.features-title {
+  margin-bottom: 1.6rem;
+}
+
+.features-text {
+  white-space: pre-line;
+  opacity: 0.5;
+}
+
+.box-title {
+  margin-bottom: 1.6rem;
+}
+
+.box-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.53rem;
+}
+
+.box-item {
+  display: flex;
+  align-items: center;
+  column-gap: 1.6rem;
+}
+
+.box-item-quantity {
+  color: var(--color-primary-500);
+}
+
+.box-item-name {
+  opacity: 0.5;
+}
+
+@media (width >= 768px) {
+  .summary {
+    row-gap: 8rem;
+    margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
+  }
+
+  .features-title {
+    margin-bottom: 2.13rem;
+  }
+
+  .box {
+    display: flex;
+    align-items: start;
+    column-gap: 12rem;
+  }
+}
+
+@media (width >= 1200px) {
+  .summary {
+    flex-direction: row;
+    align-items: start;
+    column-gap: 8.3rem;
+  }
+
+  .features {
+    flex-basis: 57%;
+  }
+
+  .box {
+    display: block;
+    flex-basis: 31.5%;
+  }
+}

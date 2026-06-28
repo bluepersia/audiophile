@@ -28,6 +28,48 @@ type ProductData = {
     tablet: string;
     desktop: string;
   };
+  alt: string;
+  description: string;
+  price: number;
+  features: string;
+  includes: [
+    {
+      item: string;
+      quantity: number;
+    },
+  ];
+  gallery: {
+    first: {
+      alt: string;
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+    second: {
+      alt: string;
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+    third: {
+      alt: string;
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+  };
+  others: [
+    {
+      slug: string;
+      name: string;
+      image: {
+        mobile: string;
+        tablet: string;
+        desktop: string;
+        alt: "";
+      };
+    },
+  ];
 };
 
 export type { CategoryData, SectionData, ProductData };

@@ -1,0 +1,38 @@
+import { Link, useLocation, useParams } from "react-router";
+import type { JSX } from "react/jsx-runtime";
+import useProductQuery from "../../hooks/useProductQuery";
+import Details from "./Details/Details";
+import styles from "./ProductDetail.module.scss";
+import Summary from "./Summary/Summary";
+import Gallery from "./Gallery/Gallery";
+import RelatedProducts from "./RelatedProducts/RelatedProducts";
+import Categories from "../../components/Categories/Categories";
+import AboutUs from "../../components/AboutUs/AboutUs";
+
+export default function ProductDetail(): JSX.Element {
+  const location = useLocation();
+  const { slug } = useParams();
+
+  const { jsx: productJSX } = useProductQuery(slug, (product) => (
+    <>
+      <article>
+        <Details product={product} />
+        <Summary product={product} />
+        <Gallery product={product} />
+        <RelatedProducts product={product} />
+        <Categories />
+        <AboutUs />
+      </article>
+    </>
+  ));
+  return (
+    <div className="container">
+      <nav className={styles.nav}>
+        <Link to={location.state?.from || "/"} className={styles["back-link"]}>
+          Go Back
+        </Link>
+      </nav>
+      {productJSX}
+    </div>
+  );
+}

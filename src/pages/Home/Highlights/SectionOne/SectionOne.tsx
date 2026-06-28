@@ -3,10 +3,13 @@ import type { SectionRendererProps } from "../SectionRenderer.types";
 import styles from "./SectionOne.module.scss";
 import Btn from "../../../../components/Btn/Btn";
 import useProductQuery from "../../../../hooks/useProductQuery";
+import { useLocation } from "react-router";
 
 export default function SectionOne({
   section,
 }: SectionRendererProps): JSX.Element {
+  const location = useLocation();
+
   const { jsx: sectionJSX } = useProductQuery(
     section.productSlug,
     (product) => (
@@ -27,6 +30,7 @@ export default function SectionOne({
             color="dark"
             className={styles.btn}
             to={`products/${product.slug}`}
+            state={{ from: location.pathname }}
           >
             See Product
           </Btn>
