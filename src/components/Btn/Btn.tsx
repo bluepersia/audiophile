@@ -9,6 +9,7 @@ type BtnProps = PropsWithChildren & {
   to?: string;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   color?: string;
+  state?: any;
 };
 export default function Btn({
   to,
@@ -16,12 +17,14 @@ export default function Btn({
   children,
   className = "",
   color = "primary",
+  state,
 }: BtnProps): JSX.Element {
   if (to)
     return (
       <NavLink
         to={to}
         className={clsx(styles.btn, styles[`btn--${color}`], className)}
+        state={state}
       >
         {children}
       </NavLink>

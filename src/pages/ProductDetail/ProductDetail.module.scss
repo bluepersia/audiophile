@@ -1,0 +1,27 @@
+.nav {
+  padding: 1.06rem 0 1.6rem;
+}
+
+.back-link {
+  color: var(--color-neutral-0);
+  opacity: 0.5;
+  text-decoration: none;
+  transition: color 300ms;
+}
+
+.back-link:hover,
+.back-link:focus {
+  color: var(--color-primary-500);
+}
+
+@media (width >= 768px) {
+  .nav {
+    padding: 2.2rem 0 1.6rem;
+  }
+}
+
+@media (width >= 1200px) {
+  .nav {
+    padding: 5.26rem 0 3.73rem;
+  }
+}

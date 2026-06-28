@@ -1,0 +1,121 @@
+@use "/src/styles/mixins" as *;
+
+.details {
+  margin-bottom: clamp(5.867rem, 3.831rem + 8.142vi, 8rem);
+}
+
+.picture {
+  display: block;
+  margin-bottom: 2.13rem;
+}
+
+.new {
+  margin-bottom: 1.6rem;
+}
+
+.name {
+  @include h4;
+
+  margin-bottom: 1.6rem;
+}
+
+.description {
+  opacity: 0.5;
+  margin-bottom: 1.6rem;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 0.07em;
+  margin-bottom: 2.06rem;
+}
+
+.actions {
+  display: flex;
+}
+
+.quantity-panel {
+  display: flex;
+  width: 120px;
+  height: 48px;
+  margin-right: 1.06rem;
+}
+
+.quantity-btn,
+.quantity {
+  flex-grow: 1;
+  background-color: var(--color-neutral-700);
+  font-size: 0.86rem;
+  font-weight: bold;
+}
+
+.quantity-btn {
+  cursor: pointer;
+  transition: color 300ms;
+  color: rgb(var(--color-neutral-0-rgb) / 50%);
+}
+
+.quantity-btn:hover,
+.quantity-btn:focus {
+  color: var(--color-primary-500);
+}
+
+.quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (width >= 768px) {
+  .details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
+  }
+
+  .picture {
+    margin-bottom: 0;
+    flex-basis: 40.7%;
+  }
+
+  .content {
+    flex-basis: 49.2%;
+  }
+
+  .new {
+    margin-bottom: 1.13rem;
+  }
+
+  .name {
+    font-size: clamp(1.867rem, 0.444rem + 2.778vi, 2.667rem);
+    margin-bottom: 2.13rem;
+  }
+
+  .description {
+    margin-bottom: 2.13rem;
+  }
+
+  .price {
+    margin-bottom: 2.06rem;
+  }
+}
+
+@media (width >= 1200px) {
+  .picture {
+    flex-basis: 48.6%;
+  }
+
+  .content {
+    flex-basis: 40%;
+  }
+
+  .new {
+    margin-bottom: 1.06rem;
+  }
+
+  .price {
+    margin-bottom: 3.13rem;
+  }
+}

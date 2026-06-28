@@ -28,6 +28,9 @@ type ProductData = {
     tablet: string;
     desktop: string;
   };
+  alt: string;
+  description: string;
+  price: number;
 };
 
 export type { CategoryData, SectionData, ProductData };

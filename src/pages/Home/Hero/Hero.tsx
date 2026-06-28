@@ -7,6 +7,7 @@ import styles from "./Hero.module.scss";
 import clsx from "clsx";
 import Spinner from "../../../components/Spinner/Spinner";
 import Error from "../../../components/Error/Error";
+import { useLocation } from "react-router";
 
 export default function Hero(): JSX.Element {
   const {
@@ -17,6 +18,7 @@ export default function Hero(): JSX.Element {
     queryKey: ["home-hero"],
     queryFn: getHero,
   });
+  const location = useLocation();
 
   const {
     data: product,
@@ -45,7 +47,11 @@ export default function Hero(): JSX.Element {
           </p>
           <h1 className={styles.name}>{product.name}</h1>
           <p className={styles.desc}>{hero.description}</p>
-          <Btn className={styles.btn} to={`products/${product.slug}`}>
+          <Btn
+            className={styles.btn}
+            to={`products/${product.slug}`}
+            state={{ from: location.pathname }}
+          >
             See Product
           </Btn>
         </div>
