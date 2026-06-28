@@ -6,6 +6,8 @@ import styles from "./ProductDetail.module.scss";
 import Summary from "./Summary/Summary";
 import Gallery from "./Gallery/Gallery";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
+import Categories from "../../components/Categories/Categories";
+import AboutUs from "../../components/AboutUs/AboutUs";
 
 export default function ProductDetail(): JSX.Element {
   const location = useLocation();
@@ -18,6 +20,8 @@ export default function ProductDetail(): JSX.Element {
         <Summary product={product} />
         <Gallery product={product} />
         <RelatedProducts product={product} />
+        <Categories />
+        <AboutUs />
       </article>
     </>
   ));
