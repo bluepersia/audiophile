@@ -58,6 +58,18 @@ type ProductData = {
       desktop: string;
     };
   };
+  others: [
+    {
+      slug: string;
+      name: string;
+      image: {
+        mobile: string;
+        tablet: string;
+        desktop: string;
+        alt: "";
+      };
+    },
+  ];
 };
 
 export type { CategoryData, SectionData, ProductData };
