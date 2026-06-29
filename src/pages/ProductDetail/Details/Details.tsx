@@ -52,9 +52,9 @@ export default function Details({ product }: DetailsProps): JSX.Element {
           />
         </picture>
         <div className={styles.content}>
-          <p className={clsx(styles.new, "overline")}>
-            {product.new ? "New Product" : ""}
-          </p>
+          {product.new && (
+            <p className={clsx(styles.new, "overline")}>New Product</p>
+          )}
           <h1 className={styles.name}>{product.name}</h1>
           <p className={styles.description}>{product.description}</p>
           <p className={styles.price}>{formatted.format(product.price)}</p>
