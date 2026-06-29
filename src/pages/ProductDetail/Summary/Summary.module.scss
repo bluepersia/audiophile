@@ -1,6 +1,6 @@
 @use "/src/styles/mixins" as *;
 
-.summary {
+.summary-inner {
   display: flex;
   flex-direction: column;
   row-gap: 5.86rem;
@@ -47,7 +47,7 @@
 }
 
 @media (width >= 768px) {
-  .summary {
+  .summary-inner {
     row-gap: 8rem;
   }
 
@@ -63,7 +63,7 @@
 }
 
 @media (width >= 1200px) {
-  .summary {
+  .summary-inner {
     flex-direction: row;
     align-items: start;
     column-gap: 8.3rem;

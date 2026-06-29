@@ -41,37 +41,39 @@ export default function Details({ product }: DetailsProps): JSX.Element {
 
   return (
     <section className={styles.details}>
-      <picture className={styles.picture}>
-        <source srcSet={product.image.desktop} media="(min-width:1200px)" />
-        <source srcSet={product.image.tablet} media="(min-width:768px)" />
-        <img
-          src={product.image.mobile}
-          alt={product.alt}
-          className={styles.img}
-        />
-      </picture>
-      <div className={styles.content}>
-        <p className={clsx(styles.new, "overline")}>
-          {product.new ? "New Product" : ""}
-        </p>
-        <h1 className={styles.name}>{product.name}</h1>
-        <p className={styles.description}>{product.description}</p>
-        <p className={styles.price}>{formatted.format(product.price)}</p>
-        <div className={styles.actions}>
-          <div className={styles["quantity-panel"]}>
-            <button onClick={decrement} className={styles["quantity-btn"]}>
-              -
-            </button>
-            <p className={styles.quantity}>{quantity}</p>
-            <button onClick={increment} className={styles["quantity-btn"]}>
-              +
-            </button>
+      <div className={clsx(styles["details-inner"], "container")}>
+        <picture className={styles.picture}>
+          <source srcSet={product.image.desktop} media="(min-width:1200px)" />
+          <source srcSet={product.image.tablet} media="(min-width:768px)" />
+          <img
+            src={product.image.mobile}
+            alt={product.alt}
+            className={styles.img}
+          />
+        </picture>
+        <div className={styles.content}>
+          <p className={clsx(styles.new, "overline")}>
+            {product.new ? "New Product" : ""}
+          </p>
+          <h1 className={styles.name}>{product.name}</h1>
+          <p className={styles.description}>{product.description}</p>
+          <p className={styles.price}>{formatted.format(product.price)}</p>
+          <div className={styles.actions}>
+            <div className={styles["quantity-panel"]}>
+              <button onClick={decrement} className={styles["quantity-btn"]}>
+                -
+              </button>
+              <p className={styles.quantity}>{quantity}</p>
+              <button onClick={increment} className={styles["quantity-btn"]}>
+                +
+              </button>
+            </div>
+            <Btn
+              onClick={() => cartContext.updateProductBy(product.id, quantity)}
+            >
+              Add To Cart
+            </Btn>
           </div>
-          <Btn
-            onClick={() => cartContext.updateProductBy(product.id, quantity)}
-          >
-            Add To Cart
-          </Btn>
         </div>
       </div>
     </section>
