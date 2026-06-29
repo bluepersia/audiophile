@@ -13,4 +13,12 @@ async function getProduct(slug: string): Promise<ProductData> {
   return product;
 }
 
-export { getProduct };
+async function getProductsByCategory(category: string): Promise<ProductData[]> {
+  const res = await fetch("/data/products.json");
+
+  const products = (await res.json()) as ProductData[];
+
+  return products.filter((product) => product.category === category).reverse();
+}
+
+export { getProduct, getProductsByCategory };

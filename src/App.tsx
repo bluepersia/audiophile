@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AppLayout from "./components/AppLayout/AppLayout";
 import Home from "./pages/Home/Home";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
+import CategoryPage from "./pages/CategoryPage/CategoryPage";
 
 const queryClient: QueryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ function App(): JSX.Element {
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Home />} />
             <Route path="products/:slug" element={<ProductDetail />} />
+            <Route path="categories/:category" element={<CategoryPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

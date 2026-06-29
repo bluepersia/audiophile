@@ -1,0 +1,36 @@
+@use "/src/styles/mixins" as *;
+
+.title {
+  @include heading-shared;
+
+  font-size: clamp(1.867rem, 1.103rem + 3.053vi, 2.667rem);
+  background-color: var(--color-neutral-0);
+  color: var(--color-neutral-900);
+  text-align: center;
+  padding: clamp(2.133rem, -2.192rem + 17.303vi, 6.667rem) 0;
+  margin-bottom: clamp(4.267rem, 0.704rem + 14.249vi, 8rem);
+}
+
+.products-mg-btm {
+  margin-bottom: 11.46rem;
+}
+
+.categories-mg-btm,
+.about-us-mg-btm {
+  margin-bottom: 8rem;
+}
+
+@media (width >= 768px) {
+  .title {
+    margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
+  }
+
+  .products-mg-btm {
+    margin-bottom: clamp(11.467rem, 3.407rem + 15.741vi, 16rem);
+  }
+
+  .categories-mg-btm,
+  .about-us-mg-btm {
+    margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
+  }
+}
