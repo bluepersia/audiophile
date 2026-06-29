@@ -1,0 +1,27 @@
+.hero-mg-btm {
+  margin-bottom: clamp(6.133rem, 2.571rem + 14.249vi, 9.867rem);
+}
+
+.categories-mg-btm {
+  margin-bottom: clamp(8rem, 9.527rem + -6.107vi, 6.4rem);
+}
+
+.highlights-mg-btm,
+.about-us-mg-btm {
+  margin-bottom: clamp(8rem, 9.527rem + -6.107vi, 6.4rem);
+}
+
+@media (width >= 768px) {
+  .hero-mg-btm {
+    margin-bottom: clamp(9.867rem, 3.704rem + 12.037vi, 13.333rem);
+  }
+
+  .categories-mg-btm {
+    margin-bottom: clamp(6.4rem, -2.133rem + 16.667vi, 11.2rem);
+  }
+
+  .highlights-mg-btm,
+  .about-us-mg-btm {
+    margin-bottom: clamp(6.4rem, -5.926rem + 24.074vi, 13.333rem);
+  }
+}

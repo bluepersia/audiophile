@@ -1,10 +1,5 @@
 @use "/src/styles/mixins" as *;
 
-.categories {
-  padding-top: clamp(6.133rem, 2.571rem + 14.249vi, 9.867rem);
-  padding-bottom: clamp(8rem, 9.527rem + -6.107vi, 6.4rem);
-}
-
 .list {
   display: flex;
   flex-direction: column;
@@ -62,11 +57,6 @@
 }
 
 @media (width >=768px) {
-  .categories {
-    padding-top: clamp(9.867rem, 3.704rem + 12.037vi, 13.333rem);
-    padding-bottom: clamp(6.4rem, -2.133rem + 16.667vi, 11.2rem);
-  }
-
   .list {
     flex-direction: row;
     column-gap: 0.66rem;

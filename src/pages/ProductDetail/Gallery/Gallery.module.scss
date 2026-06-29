@@ -1,7 +1,3 @@
-.gallery {
-  margin-bottom: 8rem;
-}
-
 .images {
   display: flex;
   flex-direction: column;
@@ -17,10 +13,6 @@
 }
 
 @media (width >= 768px) {
-  .gallery {
-    margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
-  }
-
   .images {
     display: grid;
     grid-template-columns: 40fr 57fr;

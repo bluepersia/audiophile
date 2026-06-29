@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   row-gap: 5.86rem;
-  margin-bottom: clamp(5.867rem, 3.831rem + 8.142vi, 8rem);
 }
 
 .features-title,
@@ -50,7 +49,6 @@
 @media (width >= 768px) {
   .summary {
     row-gap: 8rem;
-    margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
   }
 
   .features-title {

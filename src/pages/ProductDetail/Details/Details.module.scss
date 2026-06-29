@@ -1,9 +1,5 @@
 @use "/src/styles/mixins" as *;
 
-.details {
-  margin-bottom: clamp(5.867rem, 3.831rem + 8.142vi, 8rem);
-}
-
 .picture {
   display: block;
   margin-bottom: 2.13rem;
@@ -72,7 +68,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
   }
 
   .picture {
