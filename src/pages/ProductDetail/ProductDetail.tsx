@@ -8,6 +8,7 @@ import Gallery from "./Gallery/Gallery";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 import Categories from "../../components/Categories/Categories";
 import AboutUs from "../../components/AboutUs/AboutUs";
+import clsx from "clsx";
 
 export default function ProductDetail(): JSX.Element {
   const { slug } = useParams();
@@ -16,16 +17,16 @@ export default function ProductDetail(): JSX.Element {
   const { jsx: productJSX } = useProductQuery(slug, (product) => (
     <>
       <article>
-        <div className={styles["details-mg-btm"]}>
+        <div className={clsx(styles["details-mg-btm"], "container")}>
           <Details product={product} />
         </div>
-        <div className={styles["summary-mg-btm"]}>
+        <div className={clsx(styles["summary-mg-btm"], "container")}>
           <Summary product={product} />
         </div>
-        <div className={styles["gallery-mg-btm"]}>
+        <div className={clsx(styles["gallery-mg-btm"], "container")}>
           <Gallery product={product} />
         </div>
-        <div className={styles["related-mg-btm"]}>
+        <div className={clsx(styles["related-mg-btm"], "container")}>
           <RelatedProducts product={product} />
         </div>
         <div className={styles["categories-mg-btm"]}>
@@ -38,13 +39,13 @@ export default function ProductDetail(): JSX.Element {
     </>
   ));
   return (
-    <div className="container">
-      <nav className={styles.nav}>
+    <>
+      <nav className={clsx(styles.nav, "container")}>
         <button onClick={() => navigate(-1)} className={styles["back-link"]}>
           Go Back
         </button>
       </nav>
       {productJSX}
-    </div>
+    </>
   );
 }
