@@ -23,6 +23,12 @@ type ProductData = {
   name: string;
   new: boolean;
   slug: string;
+  category: string;
+  categoryImage: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
   image: {
     mobile: string;
     tablet: string;
