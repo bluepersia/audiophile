@@ -13,34 +13,39 @@ export default function RelatedProducts({
 }: RelatedProps): JSX.Element {
   return (
     <section className={styles.related}>
-      <h2 className={styles.title}>You May Also Like</h2>
-      <ul className={clsx(styles.list, "reset-list")}>
-        {product.others.map((other) => (
-          <li key={other.slug}>
-            <article className={styles.product}>
-              <picture className={styles["product-picture"]}>
-                <source
-                  srcSet={other.image.desktop}
-                  media="(min-width:1200px)"
-                />
-                <source srcSet={other.image.tablet} media="(min-width:768px)" />
-                <img
-                  src={other.image.mobile}
-                  alt={other.image.alt}
-                  className={styles["product-img"]}
-                />
-              </picture>
-              <h3 className={styles["product-name"]}>{other.name}</h3>
-              <Btn
-                to={`/products/${other.slug}`}
-                className={styles["product-btn"]}
-              >
-                See Product
-              </Btn>
-            </article>
-          </li>
-        ))}
-      </ul>
+      <div className="container">
+        <h2 className={styles.title}>You May Also Like</h2>
+        <ul className={clsx(styles.list, "reset-list")}>
+          {product.others.map((other) => (
+            <li key={other.slug}>
+              <article className={styles.product}>
+                <picture className={styles["product-picture"]}>
+                  <source
+                    srcSet={other.image.desktop}
+                    media="(min-width:1200px)"
+                  />
+                  <source
+                    srcSet={other.image.tablet}
+                    media="(min-width:768px)"
+                  />
+                  <img
+                    src={other.image.mobile}
+                    alt={other.image.alt}
+                    className={styles["product-img"]}
+                  />
+                </picture>
+                <h3 className={styles["product-name"]}>{other.name}</h3>
+                <Btn
+                  to={`/products/${other.slug}`}
+                  className={styles["product-btn"]}
+                >
+                  See Product
+                </Btn>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 }
