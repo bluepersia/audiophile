@@ -29,7 +29,7 @@ export default function MobileNav(): JSX.Element {
   }, [innerWidth]);
   return (
     <div className={styles["mobile-nav"]}>
-      <Categories />
+      <Categories onClickLink={() => modalContext.closeModal()} />
     </div>
   );
 }

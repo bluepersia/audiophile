@@ -7,8 +7,14 @@ import { Link } from "react-router";
 import clsx from "clsx";
 import Spinner from "../Spinner/Spinner";
 import Error from "../Error/Error";
+import type { MouseEvent } from "react";
 
-export default function Categories(): JSX.Element {
+type CategoriesProps = {
+  onClickLink?: (e: MouseEvent<HTMLAnchorElement>) => void;
+};
+export default function Categories({
+  onClickLink,
+}: CategoriesProps): JSX.Element {
   const {
     data: categories,
     isPending,
@@ -39,6 +45,7 @@ export default function Categories(): JSX.Element {
               <Link
                 to={`/categories/${category.name}`}
                 className={styles["category-link"]}
+                onClick={onClickLink}
               >
                 <span className={styles["category-link-text"]}>Shop</span>
                 <img
