@@ -16,12 +16,24 @@ export default function ProductDetail(): JSX.Element {
   const { jsx: productJSX } = useProductQuery(slug, (product) => (
     <>
       <article>
-        <Details product={product} />
-        <Summary product={product} />
-        <Gallery product={product} />
-        <RelatedProducts product={product} />
-        <Categories />
-        <AboutUs />
+        <div className={styles["details-mg-btm"]}>
+          <Details product={product} />
+        </div>
+        <div className={styles["summary-mg-btm"]}>
+          <Summary product={product} />
+        </div>
+        <div className={styles["gallery-mg-btm"]}>
+          <Gallery product={product} />
+        </div>
+        <div className={styles["related-mg-btm"]}>
+          <RelatedProducts product={product} />
+        </div>
+        <div className={styles["categories-mg-btm"]}>
+          <Categories />
+        </div>
+        <div className={styles["about-us-mg-btm"]}>
+          <AboutUs />
+        </div>
       </article>
     </>
   ));
