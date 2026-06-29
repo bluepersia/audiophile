@@ -40,9 +40,9 @@ export default function Hero(): JSX.Element {
     return (
       <>
         <div className={styles.content}>
-          <p className={clsx(styles.new, "overline")}>
-            {product.new ? "New Product" : ""}
-          </p>
+          {product.new && (
+            <p className={clsx(styles.new, "overline")}>New Product</p>
+          )}
           <h1 className={styles.name}>{product.name}</h1>
           <p className={styles.desc}>{hero.description}</p>
           <Btn className={styles.btn} to={`products/${product.slug}`}>
