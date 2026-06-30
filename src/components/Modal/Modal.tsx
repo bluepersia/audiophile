@@ -25,9 +25,10 @@ export default function Modal(): JSX.Element {
       }}
     >
       <Dialog.Portal>
-        <Dialog.Overlay className={styles.overlay}>
-          <Dialog.Content>{renderModal()}</Dialog.Content>
-        </Dialog.Overlay>
+        <Dialog.Overlay className={styles.overlay}></Dialog.Overlay>
+        <Dialog.Content className={styles.content}>
+          {renderModal()}
+        </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
   );
