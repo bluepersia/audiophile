@@ -63,9 +63,9 @@ export default function Categories({
 
   return (
     <section className={styles.categories}>
-      <div className={clsx(styles["categories-inner"], "container")}>
+      <nav className={clsx(styles["categories-inner"], "container")}>
         {render()}
-      </div>
+      </nav>
     </section>
   );
 }
