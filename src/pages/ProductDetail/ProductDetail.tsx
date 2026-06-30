@@ -8,6 +8,7 @@ import Gallery from "./Gallery/Gallery";
 import RelatedProducts from "./RelatedProducts/RelatedProducts";
 import Categories from "../../components/Categories/Categories";
 import AboutUs from "../../components/AboutUs/AboutUs";
+import GoBack from "../../components/GoBack/GoBack";
 
 export default function ProductDetail(): JSX.Element {
   const { slug } = useParams();
@@ -36,5 +37,10 @@ export default function ProductDetail(): JSX.Element {
       </article>
     </>
   ));
-  return <>{productJSX}</>;
+  return (
+    <>
+      <GoBack />
+      {productJSX}
+    </>
+  );
 }

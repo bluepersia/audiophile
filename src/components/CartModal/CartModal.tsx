@@ -1,39 +1,15 @@
-import { useContext } from "react";
 import type { JSX } from "react/jsx-runtime";
-import { CartContext } from "../../contexts/CartContext/CartContext";
 import CartItem from "../CartItem/CartItem";
-import { useQuery } from "@tanstack/react-query";
-import { getProductsByIDs } from "../../api/products.api";
-import Spinner from "../Spinner/Spinner";
-import Error from "../Error/Error";
 import { formatted } from "../../utils/formatting";
 import LabelValue from "../LabelValue/LabelValue";
 import Btn from "../Btn/Btn";
 import styles from "./CartModal.module.scss";
 import QuantityPanel from "../QuantityPanel/QuantityPanel";
 import { calculateTotalPrice } from "../../utils/cartCalculations";
+import useCartItemsQuery from "../../hooks/useCartItemsQuery";
 
 export default function CartModal(): JSX.Element {
-  const cartContext = useContext(CartContext);
-  const productIds =
-    cartContext.cart?.map((cartItem) => cartItem.productId) || undefined;
-
-  const {
-    data: products,
-    isPending,
-    error,
-  } = useQuery({
-    queryKey: ["products", productIds],
-    queryFn: () => getProductsByIDs(productIds),
-    enabled: Boolean(productIds),
-  });
-
-  function render(): JSX.Element {
-    if (cartContext.isPending || isPending) return <Spinner />;
-
-    if (cartContext.error || error)
-      return <Error error={cartContext.error || error} />;
-
+  const { jsx } = useCartItemsQuery((cartContext, products) => {
     const totalPrice = calculateTotalPrice(cartContext.cart, products);
 
     return (
@@ -87,7 +63,7 @@ export default function CartModal(): JSX.Element {
         </div>
       </div>
     );
-  }
+  });
 
-  return <div>{render()}</div>;
+  return <div>{jsx}</div>;
 }
