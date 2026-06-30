@@ -9,6 +9,7 @@ type ModalContextType = {
   openModal: (modal: ModalType) => void;
   toggleModal: (modal: ModalType) => void;
   closeModal: () => void;
+  isOpen: (modalType: string) => boolean;
   modal: ModalType;
 };
 
@@ -34,9 +35,14 @@ export default function ModalContextProvider({
   function closeModal(): void {
     setModal(null);
   }
+
+  function isOpen(modalType: string): boolean {
+    return modal?.type === modalType;
+  }
+
   return (
     <ModalContext.Provider
-      value={{ modal, openModal, toggleModal, closeModal }}
+      value={{ modal, openModal, toggleModal, closeModal, isOpen }}
     >
       {children}
     </ModalContext.Provider>
