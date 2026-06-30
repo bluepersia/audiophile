@@ -1,0 +1,13 @@
+.label-value {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  color: rgb(var(--color-neutral-0-rgb) / 50%);
+  text-transform: uppercase;
+}
+
+.value {
+  font-size: 1.2rem;
+}

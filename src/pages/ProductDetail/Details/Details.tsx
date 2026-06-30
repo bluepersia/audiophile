@@ -4,14 +4,9 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../../contexts/CartContext/CartContext";
 import styles from "./Details.module.scss";
 import clsx from "clsx";
+import { formatted } from "../../../utils/formatting";
+import QuantityPanel from "../../../components/QuantityPanel/QuantityPanel";
 import Btn from "../../../components/Btn/Btn";
-
-const formatted = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 0,
-});
 
 const QUANTITY_MAX = 99;
 const QUANTITY_MIN = 1;
@@ -59,15 +54,12 @@ export default function Details({ product }: DetailsProps): JSX.Element {
           <p className={styles.description}>{product.description}</p>
           <p className={styles.price}>{formatted.format(product.price)}</p>
           <div className={styles.actions}>
-            <div className={styles["quantity-panel"]}>
-              <button onClick={decrement} className={styles["quantity-btn"]}>
-                -
-              </button>
-              <p className={styles.quantity}>{quantity}</p>
-              <button onClick={increment} className={styles["quantity-btn"]}>
-                +
-              </button>
-            </div>
+            <QuantityPanel
+              increment={increment}
+              decrement={decrement}
+              quantity={quantity}
+              className={styles["quantity-panel"]}
+            />
             <Btn
               onClick={() => cartContext.updateProductBy(product.id, quantity)}
             >

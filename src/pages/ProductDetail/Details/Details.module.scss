@@ -32,35 +32,7 @@
 }
 
 .quantity-panel {
-  display: flex;
-  width: 120px;
-  height: 48px;
   margin-right: 1.06rem;
-}
-
-.quantity-btn,
-.quantity {
-  flex-grow: 1;
-  background-color: var(--color-neutral-700);
-  font-size: 0.86rem;
-  font-weight: bold;
-}
-
-.quantity-btn {
-  cursor: pointer;
-  transition: color 300ms;
-  color: rgb(var(--color-neutral-0-rgb) / 50%);
-}
-
-.quantity-btn:hover,
-.quantity-btn:focus {
-  color: var(--color-primary-500);
-}
-
-.quantity {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @media (width >= 768px) {

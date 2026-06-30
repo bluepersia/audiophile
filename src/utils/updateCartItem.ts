@@ -1,6 +1,6 @@
 import type { CartItem } from "../types/cart.types";
 
-export default function updateCartItem(
+export function updateCartItem(
   cart: CartItem[],
   productId: number,
   amount: number,
@@ -29,4 +29,8 @@ export default function updateCartItem(
       quantity: amount,
     },
   ];
+}
+
+export function clearCart(): CartItem[] {
+  return [] as CartItem[];
 }

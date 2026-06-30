@@ -4,6 +4,7 @@ import { ModalContext } from "../../contexts/ModalContext/ModalContext";
 import MobileNav from "../MobileNav/MobileNav";
 import styles from "./Modal.module.scss";
 import * as Dialog from "@radix-ui/react-dialog";
+import CartModal from "../CartModal/CartModal";
 
 export default function Modal(): JSX.Element {
   const modalContext = useContext(ModalContext);
@@ -14,6 +15,9 @@ export default function Modal(): JSX.Element {
     switch (modalContext.modal?.type) {
       case "mobile-nav":
         return <MobileNav />;
+
+      case "cart":
+        return <CartModal />;
     }
   }
 

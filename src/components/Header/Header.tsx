@@ -7,9 +7,11 @@ import Logo from "../Logo/Logo";
 import Nav from "../Nav/Nav";
 import { useContext } from "react";
 import { ModalContext } from "../../contexts/ModalContext/ModalContext";
+import { CartContext } from "../../contexts/CartContext/CartContext";
 
 export default function Header(): JSX.Element {
   const modalContext = useContext(ModalContext);
+  const cartContext = useContext(CartContext);
 
   return (
     <header className={styles.header}>
@@ -23,8 +25,17 @@ export default function Header(): JSX.Element {
         </button>
         <Logo className={styles.logo} />
         <Nav />
-        <button className={styles["cart-btn"]} aria-label="Open cart">
+        <button
+          className={styles["cart-btn"]}
+          aria-label={`${modalContext.isOpen("cart") ? "Close" : "Open"} cart`}
+          onClick={() => modalContext.toggleModal({ type: "cart" })}
+        >
           <img src={cartIcon} alt="" />
+          {cartContext.cart?.length > 0 ? (
+            <span className={styles["cart-count"]}>
+              {cartContext.cart?.length}
+            </span>
+          ) : null}
         </button>
       </div>
     </header>
