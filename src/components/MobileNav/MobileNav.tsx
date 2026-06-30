@@ -30,7 +30,7 @@ export default function MobileNav(): JSX.Element {
   }, [innerWidth]);
   return (
     <FocusTrap focusTrapOptions={{ allowOutsideClick: true }}>
-      <div className={styles["mobile-nav"]}>
+      <div className={styles["mobile-nav"]} role="dialog" aria-modal="true">
         <Categories onClickLink={() => modalContext.closeModal()} />
       </div>
     </FocusTrap>
