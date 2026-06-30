@@ -16,7 +16,7 @@ export default function Header(): JSX.Element {
       <div className={clsx(styles["header-inner"], "container")}>
         <button
           className={styles["menu-btn"]}
-          aria-label="Open navigation menu"
+          aria-label={`${modalContext.isOpen("mobile-nav") ? "Close" : "Open"} navigation menu`}
           onClick={() => modalContext.toggleModal({ type: "mobile-nav" })}
         >
           <img src={hamburgerIcon} alt="" />
