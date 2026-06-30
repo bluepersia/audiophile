@@ -21,6 +21,7 @@ type SectionData = {
 type ProductData = {
   id: number;
   name: string;
+  codename: string;
   new: boolean;
   slug: string;
   category: string;

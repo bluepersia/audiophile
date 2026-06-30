@@ -1,5 +1,5 @@
 import type { CartItem } from "../types/cart.types";
-import updateCartItemArray from "../utils/updateCartItem";
+import { updateCartItem as updateCartItemArray } from "../utils/updateCartItem";
 
 async function updateCartItem(
   productId: number,
@@ -15,6 +15,12 @@ async function updateCartItem(
   }
 }
 
+async function clearCart(guestMode: boolean): Promise<void> {
+  if (guestMode) {
+    localStorage.setItem("cart", "[]");
+  }
+}
+
 async function getCart(guestMode: boolean): Promise<CartItem[]> {
   if (guestMode) {
     const cart: CartItem[] = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -23,4 +29,4 @@ async function getCart(guestMode: boolean): Promise<CartItem[]> {
   return [];
 }
 
-export { updateCartItem, getCart };
+export { updateCartItem, getCart, clearCart };

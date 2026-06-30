@@ -13,9 +13,14 @@ type ModalContextType = {
   modal: ModalType;
 };
 
-type ModalType = {
-  type: "mobile-nav";
-} | null;
+type ModalType =
+  | {
+      type: "mobile-nav";
+    }
+  | {
+      type: "cart";
+    }
+  | null;
 
 const ModalContext = createContext<ModalContextType | null>(null);
 

@@ -21,4 +21,12 @@ async function getProductsByCategory(category: string): Promise<ProductData[]> {
   return products.filter((product) => product.category === category).reverse();
 }
 
-export { getProduct, getProductsByCategory };
+async function getProductsByIDs(ids: number[]): Promise<ProductData[]> {
+  const res = await fetch("/data/products.json");
+
+  const products = (await res.json()) as ProductData[];
+
+  return products.filter((product) => ids.includes(product.id));
+}
+
+export { getProduct, getProductsByCategory, getProductsByIDs };
