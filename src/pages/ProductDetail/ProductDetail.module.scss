@@ -1,20 +1,3 @@
-.nav {
-  padding: 1.06rem 0 1.6rem;
-}
-
-.back-link {
-  color: var(--color-neutral-0);
-  opacity: 0.5;
-  text-decoration: none;
-  transition: color 300ms;
-  cursor: pointer;
-}
-
-.back-link:hover,
-.back-link:focus {
-  color: var(--color-primary-500);
-}
-
 .details-mg-btm {
   margin-bottom: clamp(5.867rem, 3.831rem + 8.142vi, 8rem);
 }
@@ -37,10 +20,6 @@
 }
 
 @media (width >= 768px) {
-  .nav {
-    padding: 2.2rem 0 1.6rem;
-  }
-
   .details-mg-btm {
     margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
   }
@@ -60,11 +39,5 @@
   .categories-mg-btm,
   .about-us-mg-btm {
     margin-bottom: clamp(8rem, 3.259rem + 9.259vi, 10.667rem);
-  }
-}
-
-@media (width >= 1200px) {
-  .nav {
-    padding: 5.26rem 0 3.73rem;
   }
 }
