@@ -21,12 +21,7 @@ export default function Modal(): JSX.Element {
         return <CartModal />;
 
       case "checkout-confirmation":
-        return (
-          <CheckoutModal
-            modal={modalContext.modal}
-            closeModal={modalContext.closeModal}
-          />
-        );
+        return <CheckoutModal />;
     }
   }
 
