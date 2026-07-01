@@ -1,14 +1,12 @@
 import { useContext } from "react";
 import type { JSX } from "react/jsx-runtime";
-import {
-  CartContext,
-  type CartContextType,
-} from "../contexts/CartContext/CartContext";
+import { CartContext } from "../contexts/CartContext/CartContext";
 import { useQuery } from "@tanstack/react-query";
 import { getProductsByIDs } from "../api/products.api";
 import Error from "../components/Error/Error";
 import Spinner from "../components/Spinner/Spinner";
 import type { CartProduct } from "../types/cart.types";
+import type { CartContextType } from "../contexts/CartContext/CartContext.types";
 
 export default function useCartItemsQuery(
   cartRender: (
