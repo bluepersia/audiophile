@@ -9,8 +9,8 @@ import { calculateTotalPrice } from "../../utils/cartCalculations";
 import useCartItemsQuery from "../../hooks/useCartItemsQuery";
 
 export default function CartModal(): JSX.Element {
-  const { jsx } = useCartItemsQuery((cartContext, products) => {
-    const totalPrice = calculateTotalPrice(cartContext.cart, products);
+  const { jsx } = useCartItemsQuery((cartContext, cartProducts) => {
+    const totalPrice = calculateTotalPrice(cartProducts);
 
     return (
       <div className="container">
@@ -27,22 +27,22 @@ export default function CartModal(): JSX.Element {
           {cartContext.cart.length > 0 ? (
             <>
               <ul className={styles["items-list"]}>
-                {cartContext.cart.map((cartItem, index) => (
+                {cartProducts.map((cartProduct) => (
                   <CartItem
-                    key={cartItem.productId}
-                    product={products[index]}
-                    quantity={cartItem.quantity}
+                    key={cartProduct.productId}
+                    product={cartProduct}
+                    quantity={cartProduct.quantity}
                   >
                     <QuantityPanel
                       variant="small"
                       className={styles["quantity-panel"]}
                       increment={() =>
-                        cartContext.updateProductBy(cartItem.productId, 1)
+                        cartContext.updateProductBy(cartProduct.productId, 1)
                       }
                       decrement={() =>
-                        cartContext.updateProductBy(cartItem.productId, -1)
+                        cartContext.updateProductBy(cartProduct.productId, -1)
                       }
-                      quantity={cartItem.quantity}
+                      quantity={cartProduct.quantity}
                     />
                   </CartItem>
                 ))}

@@ -8,12 +8,12 @@ import { useQuery } from "@tanstack/react-query";
 import { getProductsByIDs } from "../api/products.api";
 import Error from "../components/Error/Error";
 import Spinner from "../components/Spinner/Spinner";
-import type { ProductData } from "../types/data.types";
+import type { CartProduct } from "../types/cart.types";
 
 export default function useCartItemsQuery(
   cartRender: (
     cartContext: CartContextType,
-    products: ProductData[],
+    cartProducts: CartProduct[],
   ) => JSX.Element,
 ): { jsx: JSX.Element } {
   const cartContext = useContext(CartContext);
@@ -36,7 +36,17 @@ export default function useCartItemsQuery(
     if (cartContext.error || error)
       return <Error error={cartContext.error || error} />;
 
-    return cartRender(cartContext, products);
+    return cartRender(
+      cartContext,
+      cartContext.cart.map((cartItem, index) => {
+        const product = products[index];
+        return {
+          ...cartItem,
+          ...product,
+          getSubtotal: () => cartItem.quantity * product.price,
+        };
+      }),
+    );
   }
 
   return {

@@ -1,15 +1,10 @@
-import type { CartItem } from "../types/cart.types";
-import type { ProductData } from "../types/data.types";
+import type { CartProduct } from "../types/cart.types";
 
-function calculateTotalPrice(
-  cart: CartItem[],
-  products: ProductData[],
-): number {
-  const subtotals = cart.map(
-    (cartItem, index) => cartItem.quantity * products[index].price,
+function calculateTotalPrice(products: CartProduct[]): number {
+  const totalPrice = products.reduce(
+    (prev, curr) => prev + curr.getSubtotal(),
+    0,
   );
-
-  const totalPrice = subtotals.reduce((prev, curr) => prev + curr, 0);
 
   return totalPrice;
 }
