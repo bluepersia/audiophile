@@ -39,7 +39,7 @@ const shippingSchema = z.object({
 
 const paymentSchema = z.discriminatedUnion("paymentMethod", [
   z.object({
-    paymentMethod: z.literal("cash"),
+    paymentMethod: z.literal("cash-on-delivery"),
   }),
 
   z.object({
