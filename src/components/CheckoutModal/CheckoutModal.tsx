@@ -2,20 +2,38 @@ import type { JSX } from "react/jsx-runtime";
 import tickIcon from "/src/assets/checkout/icon-order-confirmation.svg";
 import CartItemWithQuantity from "../CartItem/CartItemWithQuantity";
 import { formatted } from "../../utils/formatting";
-import type { CheckoutModalType } from "../../types/modal.types";
 import styles from "./CheckoutModal.module.scss";
 import Btn from "../Btn/Btn";
+import { useCallback, useContext, useEffect } from "react";
+import { ModalContext } from "../../contexts/ModalContext/ModalContext";
+import type { CheckoutModalType } from "../../types/modal.types";
+import { CartContext } from "../../contexts/CartContext/CartContext";
+import { useNavigate } from "react-router";
 
-type CheckoutModalProps = {
-  modal: CheckoutModalType;
-  closeModal: () => void;
-};
-export default function CheckoutModal({
-  modal,
-  closeModal,
-}: CheckoutModalProps): JSX.Element {
+export default function CheckoutModal(): JSX.Element {
+  const modalContext = useContext(ModalContext);
+  const cartContext = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const modal = modalContext.modal as CheckoutModalType;
+
   const items = modal.items;
   const firstItem = items[0];
+
+  const onClosed = useCallback(() => {
+    cartContext.removeAll();
+    navigate("/");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    modalContext.addOnClosed(onClosed);
+
+    return () => {
+      modalContext.removeOnClosed(onClosed);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section className={styles["checkout-modal"]}>
@@ -38,7 +56,11 @@ export default function CheckoutModal({
           <p>{formatted.format(modal.grandTotal)}</p>
         </div>
       </div>
-      <Btn to="/" className={styles["back-btn"]} onClick={closeModal}>
+      <Btn
+        to="/"
+        className={styles["back-btn"]}
+        onClick={modalContext.closeModal}
+      >
         Back To Home
       </Btn>
     </section>
