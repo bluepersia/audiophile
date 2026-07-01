@@ -7,9 +7,9 @@ import clsx from "clsx";
 type BtnProps = PropsWithChildren & {
   className?: string;
   to?: string;
-  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   color?: string;
-  state?: any;
+  state?: unknown;
 };
 export default function Btn({
   to,
@@ -25,6 +25,7 @@ export default function Btn({
         to={to}
         className={clsx(styles.btn, styles[`btn--${color}`], className)}
         state={state}
+        onClick={onClick ? onClick : () => {}}
       >
         {children}
       </NavLink>

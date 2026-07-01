@@ -1,0 +1,26 @@
+.checkout-form {
+  margin-bottom: 2.13rem;
+}
+
+@media (width >= 768px) {
+  .checkout {
+    padding-bottom: clamp(6.467rem, 5.258rem + 4.835vi, 7.733rem);
+  }
+}
+
+@media (width >= 1200px) {
+  .checkout {
+    display: flex;
+    column-gap: 2rem;
+    justify-content: space-between;
+    padding-bottom: clamp(7.733rem, 4.77rem + 5.787vi, 9.4rem);
+  }
+
+  .checkout-form {
+    flex-basis: 65.7%;
+  }
+
+  .summary {
+    flex-basis: 31.5%;
+  }
+}

@@ -7,7 +7,7 @@ import {
   clearCart as clearCartArray,
 } from "../../utils/updateCartItem";
 
-type CartContextType = {
+export type CartContextType = {
   cart: CartItem[];
   isPending: boolean;
   error: Error;

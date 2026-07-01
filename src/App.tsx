@@ -6,6 +6,7 @@ import AppLayout from "./components/AppLayout/AppLayout";
 import Home from "./pages/Home/Home";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import CategoryPage from "./pages/CategoryPage/CategoryPage";
+import Checkout from "./pages/Checkout/Checkout";
 
 const queryClient: QueryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ function App(): JSX.Element {
             <Route index element={<Home />} />
             <Route path="products/:slug" element={<ProductDetail />} />
             <Route path="categories/:category" element={<CategoryPage />} />
+            <Route path="checkout" element={<Checkout />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -3,6 +3,10 @@
   justify-content: space-between;
 }
 
+.label-value--primary {
+  color: var(--color-primary-500);
+}
+
 .label {
   color: rgb(var(--color-neutral-0-rgb) / 50%);
   text-transform: uppercase;

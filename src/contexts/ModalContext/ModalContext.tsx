@@ -4,6 +4,7 @@ import {
   type JSX,
   type PropsWithChildren,
 } from "react";
+import type { CheckoutModalType } from "../../types/modal.types";
 
 type ModalContextType = {
   openModal: (modal: ModalType) => void;
@@ -20,6 +21,7 @@ type ModalType =
   | {
       type: "cart";
     }
+  | CheckoutModalType
   | null;
 
 const ModalContext = createContext<ModalContextType | null>(null);
