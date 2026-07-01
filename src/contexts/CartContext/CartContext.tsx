@@ -6,14 +6,7 @@ import {
   updateCartItem as updateCartItemArray,
   clearCart as clearCartArray,
 } from "../../utils/updateCartItem";
-
-export type CartContextType = {
-  cart: CartItem[];
-  isPending: boolean;
-  error: Error;
-  updateProductBy: (productId: number, amount: number) => void;
-  removeAll: () => void;
-};
+import type { CartContextType } from "./CartContext.types";
 
 type CartAction =
   | {
