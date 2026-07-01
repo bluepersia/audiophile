@@ -38,7 +38,10 @@ export default function Summary({ pay, className }: SummaryProps): JSX.Element {
         </ul>
         <ul className={clsx(styles["summary-list"], "reset-list")}>
           <li>
-            <LabelValue label="Total" value={formatted.format(totalPrice)} />
+            <LabelValue
+              label="Total"
+              value={formatted.format(totalPriceIncVAT)}
+            />
           </li>
           <li>
             <LabelValue
