@@ -9,6 +9,7 @@ import { calculateTotalPrice } from "../../utils/cartCalculations";
 import useCartItemsQuery from "../../hooks/useCartItemsQuery";
 import { useContext } from "react";
 import { ModalContext } from "../../contexts/ModalContext/ModalContext";
+import clsx from "clsx";
 
 export default function CartModal(): JSX.Element {
   const modalContext = useContext(ModalContext);
@@ -30,25 +31,26 @@ export default function CartModal(): JSX.Element {
           </div>
           {cartContext.cart.length > 0 ? (
             <>
-              <ul className={styles["items-list"]}>
+              <ul className={clsx(styles["items-list"], "reset-list")}>
                 {cartProducts.map((cartProduct) => (
-                  <CartItem
-                    key={cartProduct.productId}
-                    product={cartProduct}
-                    quantity={cartProduct.quantity}
-                  >
-                    <QuantityPanel
-                      variant="small"
-                      className={styles["quantity-panel"]}
-                      increment={() =>
-                        cartContext.updateProductBy(cartProduct.productId, 1)
-                      }
-                      decrement={() =>
-                        cartContext.updateProductBy(cartProduct.productId, -1)
-                      }
+                  <li key={cartProduct.productId}>
+                    <CartItem
+                      product={cartProduct}
                       quantity={cartProduct.quantity}
-                    />
-                  </CartItem>
+                    >
+                      <QuantityPanel
+                        variant="small"
+                        className={styles["quantity-panel"]}
+                        increment={() =>
+                          cartContext.updateProductBy(cartProduct.productId, 1)
+                        }
+                        decrement={() =>
+                          cartContext.updateProductBy(cartProduct.productId, -1)
+                        }
+                        quantity={cartProduct.quantity}
+                      />
+                    </CartItem>
+                  </li>
                 ))}
               </ul>
               <div className={styles["total-mg-btm"]}>
