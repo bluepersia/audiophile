@@ -24,7 +24,7 @@ export default function Header(): JSX.Element {
           <img src={hamburgerIcon} alt="" />
         </button>
         <Logo className={styles.logo} />
-        <Nav />
+        <Nav className={styles.nav} />
         <button
           className={styles["cart-btn"]}
           aria-label={`${modalContext.isOpen("cart") ? "Close" : "Open"} cart`}
