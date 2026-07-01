@@ -9,4 +9,12 @@ function calculateTotalPrice(products: CartProduct[]): number {
   return totalPrice;
 }
 
-export { calculateTotalPrice };
+function calculateShipping(): number {
+  return 50;
+}
+
+function calculateVAT(totalPrice: number): number {
+  return totalPrice * 0.2;
+}
+
+export { calculateTotalPrice, calculateShipping, calculateVAT };

@@ -1,0 +1,40 @@
+@use "/src/styles/mixins" as *;
+
+.summary {
+  background-color: var(--color-neutral-900);
+  padding: 2.13rem 1.6rem;
+}
+
+.title {
+  @include h6;
+
+  margin-bottom: 2.13rem;
+}
+
+.cart-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+  margin-bottom: 2.13rem;
+}
+
+.quantity {
+  opacity: 0.5;
+  margin-left: auto;
+  font-weight: bold;
+}
+
+.summary-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.53rem;
+  margin-bottom: 2.13rem;
+}
+
+.summary-list li:last-child {
+  margin-top: 1rem;
+}
+
+.pay-btn {
+  width: 100%;
+}

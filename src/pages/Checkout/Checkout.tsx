@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from "react";
+import { useContext, useState, type ChangeEvent } from "react";
 import type { JSX } from "react/jsx-runtime";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import type { FormDataType, FormErrors } from "./Checkout.types";
@@ -7,6 +7,9 @@ import { checkoutSchema } from "./Checkout.schema";
 import clsx from "clsx";
 import styles from "./Checkout.module.scss";
 import GoBack from "../../components/GoBack/GoBack";
+import Summary from "./Summary/Summary";
+import { ModalContext } from "../../contexts/ModalContext/ModalContext";
+import type { CartProduct } from "../../types/cart.types";
 
 export default function Checkout(): JSX.Element {
   const [formData, setFormData] = useState<FormDataType>({
@@ -24,6 +27,8 @@ export default function Checkout(): JSX.Element {
 
   const [formErrors, setFormErrors] = useState<FormErrors>({});
 
+  const modalContext = useContext(ModalContext);
+
   function onChange(e: ChangeEvent<HTMLInputElement>): void {
     setFormData((prev) => ({
       ...prev,
@@ -31,11 +36,17 @@ export default function Checkout(): JSX.Element {
     }));
   }
 
-  function pay(): void {
+  function pay(items: CartProduct[], grandTotal: number): void {
     setFormErrors({});
 
     try {
       checkoutSchema.parse(formData);
+
+      modalContext.openModal({
+        type: "checkout-confirmation",
+        items,
+        grandTotal,
+      });
     } catch (err) {
       if (err instanceof ZodError) {
         for (const issue of err.issues.reverse()) {
@@ -56,7 +67,7 @@ export default function Checkout(): JSX.Element {
           formErrors={formErrors}
           className={styles["checkout-form"]}
         />
-        <button onClick={pay}>Pay</button>
+        <Summary pay={pay} className={styles.summary} />
       </div>
     </>
   );

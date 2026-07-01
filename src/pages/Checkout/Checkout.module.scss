@@ -12,6 +12,7 @@
   .checkout {
     display: flex;
     column-gap: 2rem;
+    justify-content: space-between;
     padding-bottom: clamp(7.733rem, 4.77rem + 5.787vi, 9.4rem);
   }
 
