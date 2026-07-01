@@ -1,4 +1,4 @@
-import { useContext, useState, type ChangeEvent } from "react";
+import { useContext, useEffect, useState, type ChangeEvent } from "react";
 import type { JSX } from "react/jsx-runtime";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
 import type { FormDataType, FormErrors } from "./Checkout.types";
@@ -13,17 +13,23 @@ import type { CartProduct } from "../../types/cart.types";
 import { CartContext } from "../../contexts/CartContext/CartContext";
 
 export default function Checkout(): JSX.Element {
-  const [formData, setFormData] = useState<FormDataType>({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    zip: "",
-    city: "",
-    country: "",
-    paymentMethod: "e-money",
-    eMoneyNumber: "",
-    eMoneyPIN: "",
+  const [formData, setFormData] = useState<FormDataType>(() => {
+    const formDataFromLocaleStorage = localStorage.getItem("form");
+    if (formDataFromLocaleStorage) {
+      return JSON.parse(formDataFromLocaleStorage) as FormDataType;
+    }
+    return {
+      name: "",
+      email: "",
+      phone: "",
+      address: "",
+      zip: "",
+      city: "",
+      country: "",
+      paymentMethod: "e-money",
+      eMoneyNumber: "",
+      eMoneyPIN: "",
+    };
   });
 
   const [formErrors, setFormErrors] = useState<FormErrors>({});
@@ -59,6 +65,10 @@ export default function Checkout(): JSX.Element {
       }
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem("form", JSON.stringify(formData));
+  }, [formData]);
 
   return (
     <>
