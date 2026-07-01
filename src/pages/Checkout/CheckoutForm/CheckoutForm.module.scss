@@ -60,6 +60,8 @@
   cursor: pointer;
 }
 
+.payment-method-label:hover,
+.payment-method-label:focus,
 .payment-method-label:has(.payment-method-input:checked) {
   border-color: var(--color-primary-500);
 }

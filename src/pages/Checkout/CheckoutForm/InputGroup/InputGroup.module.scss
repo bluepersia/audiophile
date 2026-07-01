@@ -22,4 +22,11 @@
   border-radius: 8px;
   font-size: 0.93rem;
   width: 100%;
+  transition: border-color 300ms;
+  outline: none;
+}
+
+.input:hover,
+.input:focus {
+  border-color: var(--color-primary-500);
 }
