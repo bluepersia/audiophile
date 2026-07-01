@@ -5,13 +5,13 @@ import {
   calculateVAT,
   calculateTotalPrice,
 } from "../../../utils/cartCalculations";
-import CartItem from "../../../components/CartItem/CartItem";
 import LabelValue from "../../../components/LabelValue/LabelValue";
 import { formatted } from "../../../utils/formatting";
 import Btn from "../../../components/Btn/Btn";
 import type { CartProduct } from "../../../types/cart.types";
 import clsx from "clsx";
 import styles from "./Summary.module.scss";
+import CartItemWithQuantity from "../../../components/CartItem/CartItemWithQuantity";
 
 type SummaryProps = {
   pay: (items: CartProduct[], grandTotal: number) => void;
@@ -32,9 +32,7 @@ export default function Summary({ pay, className }: SummaryProps): JSX.Element {
         <ul className={clsx(styles["cart-list"], "reset-list")}>
           {cartProducts.map((cartProduct) => (
             <li key={cartProduct.productId}>
-              <CartItem product={cartProduct} quantity={cartProduct.quantity}>
-                <p className={styles.quantity}>x{cartProduct.quantity}</p>
-              </CartItem>
+              <CartItemWithQuantity cartProduct={cartProduct} />
             </li>
           ))}
         </ul>

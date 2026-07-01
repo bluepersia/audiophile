@@ -4,8 +4,7 @@ import {
   type JSX,
   type PropsWithChildren,
 } from "react";
-import type { ProductData } from "../../types/data.types";
-import type { CartItem } from "../../types/cart.types";
+import type { CheckoutModalType } from "../../types/modal.types";
 
 type ModalContextType = {
   openModal: (modal: ModalType) => void;
@@ -22,11 +21,7 @@ type ModalType =
   | {
       type: "cart";
     }
-  | {
-      type: "checkout-confirmation";
-      items: Array<CartItem & ProductData>;
-      grandTotal: number;
-    }
+  | CheckoutModalType
   | null;
 
 const ModalContext = createContext<ModalContextType | null>(null);

@@ -5,6 +5,7 @@ import MobileNav from "../MobileNav/MobileNav";
 import styles from "./Modal.module.scss";
 import * as Dialog from "@radix-ui/react-dialog";
 import CartModal from "../CartModal/CartModal";
+import CheckoutModal from "../CheckoutModal/CheckoutModal";
 
 export default function Modal(): JSX.Element {
   const modalContext = useContext(ModalContext);
@@ -18,6 +19,14 @@ export default function Modal(): JSX.Element {
 
       case "cart":
         return <CartModal />;
+
+      case "checkout-confirmation":
+        return (
+          <CheckoutModal
+            modal={modalContext.modal}
+            closeModal={modalContext.closeModal}
+          />
+        );
     }
   }
 

@@ -10,6 +10,7 @@ import GoBack from "../../components/GoBack/GoBack";
 import Summary from "./Summary/Summary";
 import { ModalContext } from "../../contexts/ModalContext/ModalContext";
 import type { CartProduct } from "../../types/cart.types";
+import { CartContext } from "../../contexts/CartContext/CartContext";
 
 export default function Checkout(): JSX.Element {
   const [formData, setFormData] = useState<FormDataType>({
@@ -28,6 +29,7 @@ export default function Checkout(): JSX.Element {
   const [formErrors, setFormErrors] = useState<FormErrors>({});
 
   const modalContext = useContext(ModalContext);
+  const cartContext = useContext(CartContext);
 
   function onChange(e: ChangeEvent<HTMLInputElement>): void {
     setFormData((prev) => ({
@@ -42,6 +44,7 @@ export default function Checkout(): JSX.Element {
     try {
       checkoutSchema.parse(formData);
 
+      cartContext.removeAll();
       modalContext.openModal({
         type: "checkout-confirmation",
         items,
