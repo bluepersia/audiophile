@@ -7,8 +7,12 @@ import styles from "./CartModal.module.scss";
 import QuantityPanel from "../QuantityPanel/QuantityPanel";
 import { calculateTotalPrice } from "../../utils/cartCalculations";
 import useCartItemsQuery from "../../hooks/useCartItemsQuery";
+import { useContext } from "react";
+import { ModalContext } from "../../contexts/ModalContext/ModalContext";
 
 export default function CartModal(): JSX.Element {
+  const modalContext = useContext(ModalContext);
+
   const { jsx } = useCartItemsQuery((cartContext, cartProducts) => {
     const totalPrice = calculateTotalPrice(cartProducts);
 
@@ -53,7 +57,11 @@ export default function CartModal(): JSX.Element {
                   value={formatted.format(totalPrice)}
                 />
               </div>
-              <Btn to="checkout" className={styles["checkout-btn"]}>
+              <Btn
+                to="checkout"
+                className={styles["checkout-btn"]}
+                onClick={() => modalContext.closeModal()}
+              >
                 Checkout
               </Btn>
             </>
